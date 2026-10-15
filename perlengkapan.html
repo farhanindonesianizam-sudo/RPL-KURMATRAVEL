@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perlengkapan Umroh & Haji</title>
+
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="static/css/style.css">
+
+<style>
+/* =========================================
+   PERLENGKAPAN UMRAH & HAJI - KURMA TRAVEL
+========================================= */
+
+:root {
+    --primary: #ed7028;
+    --primary-dark: #c95418;
+    --gold: #d8b45a;
+    --cream: #fff8f1;
+    --text: #392a22;
+    --text-soft: #76675d;
+    --border: #f0e2d5;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 270px;
+    height: 36vh;
+    max-height: 420px;
+
+    margin: 0;
+    padding: 35px 20px;
+    overflow: hidden;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(66, 35, 19, 0.82),
+            rgba(207, 91, 28, 0.68)
+        ),
+        url("static/images/hero.jpg") center 55% / cover no-repeat;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+
+    width: 260px;
+    height: 260px;
+    right: -90px;
+    bottom: -175px;
+
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 30px rgba(255, 255, 255, 0.05),
+        0 0 0 60px rgba(255, 255, 255, 0.035);
+
+    pointer-events: none;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 122, 0, 0.10),
+        rgba(30, 20, 12, 0.35)
+    );
+}
+
+.hero h1 {
+    position: relative;
+    z-index: 2;
+
+    max-width: 850px;
+    margin: 0;
+    padding: 0 12px;
+
+    color: var(--white);
+    font-size: clamp(27px, 4vw, 43px);
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.7px;
+
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.hero h1::after {
+    content: "";
+    display: block;
+
+    width: 65px;
+    height: 4px;
+    margin: 18px auto 0;
+
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.content {
+    position: relative;
+    z-index: 3;
+
+    width: calc(100% - 40px);
+    max-width: 1100px;
+
+    margin: -32px auto 60px;
+    padding: 35px;
+
+    background: var(--white);
+    border: 1px solid rgba(240, 226, 213, 0.9);
+    border-radius: 22px;
+
+    box-shadow:
+        0 16px 45px rgba(65, 39, 22, 0.07),
+        0 3px 10px rgba(65, 39, 22, 0.025);
+}
+
+/* =========================================
+   PHOTO GALLERY
+========================================= */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* Setiap gambar */
+.gallery-grid img {
+    display: block;
+
+    width: 100%;
+    height: 320px;
+
+    object-fit: contain;
+    padding: 7px;
+
+    background: #fffaf5;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    cursor: zoom-in;
+
+    box-shadow: 0 5px 16px rgba(55, 35, 22, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: translateY(-5px);
+
+    border-color: #e7c39f;
+    box-shadow: 0 14px 28px rgba(55, 35, 22, 0.12);
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.content > p {
+    margin: 32px 0 0;
+    padding: 23px 25px;
+
+    color: var(--text-soft);
+    background: linear-gradient(
+        135deg,
+        #fff9f3,
+        #fffdf9
+    );
+
+    border-left: 4px solid var(--gold);
+    border-radius: 0 13px 13px 0;
+
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* =========================================
+   LIGHTBOX
+========================================= */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(20, 14, 10, 0.93);
+    backdrop-filter: blur(7px);
+
+    cursor: zoom-out;
+}
+
+.lightbox img {
+    display: block;
+
+    max-width: min(100%, 1100px);
+    max-height: 88vh;
+
+    object-fit: contain;
+
+    background: #ffffff;
+    padding: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+    animation: imageAppear 0.25s ease;
+}
+
+@keyframes imageAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.back {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 32px;
+    padding-top: 27px;
+
+    border-top: 1px solid var(--border);
+}
+
+.back a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-height: 49px;
+    padding: 13px 27px;
+
+    color: var(--white);
+    background: linear-gradient(
+        135deg,
+        #f58a3d,
+        var(--primary)
+    );
+
+    border-radius: 50px;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+
+    box-shadow: 0 7px 18px rgba(237, 112, 40, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.back a:hover {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+
+    transform: translateY(-3px);
+    box-shadow: 0 11px 25px rgba(237, 112, 40, 0.3);
+}
+
+.back a:focus-visible {
+    outline: 3px solid rgba(237, 112, 40, 0.4);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+    .content {
+        padding: 27px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .gallery-grid img {
+        height: 300px;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 220px;
+        height: auto;
+        padding: 48px 18px;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+        letter-spacing: -0.4px;
+    }
+
+    .hero h1::after {
+        width: 52px;
+        height: 3px;
+        margin-top: 15px;
+    }
+
+    .content {
+        width: calc(100% - 26px);
+        margin-top: -23px;
+        margin-bottom: 35px;
+        padding: 17px;
+        border-radius: 17px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 11px;
+    }
+
+    .gallery-grid img {
+        height: 220px;
+        padding: 5px;
+        border-radius: 12px;
+    }
+
+    .content > p {
+        margin-top: 23px;
+        padding: 17px;
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    .back {
+        margin-top: 24px;
+        padding-top: 21px;
+    }
+
+    .back a {
+        min-height: 45px;
+        padding: 12px 21px;
+        font-size: 13px;
+    }
+
+    .lightbox {
+        padding: 12px;
+    }
+
+    .lightbox img {
+        max-width: 100%;
+        max-height: 85vh;
+        padding: 4px;
+        border-radius: 9px;
+    }
+}
+
+/* HP layar kecil */
+@media (max-width: 380px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid img {
+        height: auto;
+        max-height: 430px;
+        object-fit: contain;
+    }
+}
+
+/* Kurangi animasi jika diminta perangkat */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <h1>Perlengkapan Umroh & Haji Kurma Travel 2026</h1>
+</section>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- GRID -->
+  <div class="gallery-grid" id="perlengkapan"></div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
+  </div>
+
+  <p style="margin-top:40px;">
+    Dengan perlengkapan eksklusif dari Kurma Travel, setiap jamaah mendapatkan fasilitas yang dirancang untuk menunjang kenyamanan dan kekhusyukan selama menjalankan ibadah Umroh maupun Haji. Mulai dari 
+    koper berkualitas, tas serbaguna, kain ihram, hingga perlengkapan pendukung lainnya, semuanya dipersiapkan dengan standar terbaik agar perjalanan ibadah Anda lebih praktis, aman, dan terorganisir dengan baik.
+  </p>
+
+  <div class="back">
+    <a href="artikel.html">⬅ Kembali ke Artikel</a>
+  </div>
+
+</div>
+
+<!-- ===== SCRIPT ===== -->
+
+<script>
+function openLightbox(src){
+  document.getElementById("lightbox-img").src = src;
+  document.getElementById("lightbox").style.display="flex";
+}
+
+function closeLightbox(){
+  document.getElementById("lightbox").style.display="none";
+}
+</script>
+
+<script>
+const perlengkapan = document.getElementById("perlengkapan");
+const totalImages = 11;
+
+for(let i = 1; i <= totalImages; i++){
+  const img = document.createElement("img");
+  img.src = `static/images/perlengkapan/perlengkapan${i}.jpg`;
+  img.alt = `Perlengkapan ${i}`;
+  img.loading = "lazy";
+  img.onclick = () => openLightbox(img.src);
+  perlengkapan.appendChild(img);
+}
+</script>
+
+</body>
+</html>

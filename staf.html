@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staf - Kurma Travel</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+<div class="container nav-flex">
+
+<div class="hamburger" id="hamburger">☰</button>
+  <span class="menu-text">MENU</span>
+</div>
+
+<div class="logo">
+<img src="static/images/logo.png">
+<span>KURMA TRAVEL</span>
+</div>
+
+<nav id="navMenu">
+<a href="index.html">Home</a>
+<a href="paket.html">Paket Umroh & Haji</a>
+<a href="galeri.html">Galeri</a>
+<a href="staf.html" class="active">Staf</a>
+<a href="kontak.html">Kontak</a>
+</nav>
+
+<a class="btn-wa" onclick="openWA('Halo Kurma Travel')">
+Chat WhatsApp
+</a>
+
+</div>
+</header>
+
+<!-- HERO (SAMA DENGAN GALERI) -->
+<section class="hero"
+style="background-image:url('static/images/hero.jpg'); height:40vh;">
+<div class="overlay"></div>
+
+<div class="container hero-content">
+<h1>Tim Kurma Travel</h1>
+<p>Staf Profesional & Amanah</p>
+</div>
+</section>
+
+<!-- ================= STAFF ================= -->
+
+
+<div class="staff-heading">
+    <span>KENALI TIM KAMI</span>
+    <h2>Tim Profesional Kurma Travel</h2>
+    <p>
+        Bersama tim yang amanah dan berpengalaman,
+        kami mendampingi perjalanan ibadah Anda dengan sepenuh hati.
+    </p>
+</div>
+
+<div id="waModal" class="wa-modal">
+  <div class="wa-box">
+
+    <h3>Pilih Admin WhatsApp</h3>
+
+    <a id="wa1" target="_blank">Chat WA 1</a>
+    <a id="wa2" target="_blank">Chat WA 2</a>
+    <a id="wa3" target="_blank">Chat WA 3</a>
+
+    <button onclick="closeWA()">Tutup</button>
+
+  </div>
+</div>
+
+<section class="section">
+<div class="container">
+
+<div class="staff-grid">
+
+<!-- DIREKTUR -->
+<div class="staff-center">
+<div class="staff-card big">
+<img src="static/images/staf/direktur.jpg">
+<div class="staff-label">
+Dr. (H.C) Abdul Manan, M.A<br>
+<span>DIREKTUR UTAMA</span>
+</div>
+</div>
+</div>
+
+<!-- MEMBER -->
+<div class="staff-grid-4">
+
+<div class="staff-card">
+<img src="static/images/staf/dede.jpg">
+<div class="staff-label">
+Dede Sutardi<br>
+<span>Manager Operasional</span>
+</div>
+</div>
+
+<div class="staff-card">
+<img src="static/images/staf/mahboeb.jpg">
+<div class="staff-label">
+Mahboeb Mamdoeh, S.E<br>
+<span>Staf Admin</span>
+</div>
+</div>
+
+<div class="staff-card">
+<img src="static/images/staf/uz.jpg">
+<div class="staff-label">
+Ust. Muhammad Zaenal Arifin<br>
+<span>Manager Marketing Area</span>
+</div>
+</div>
+
+<div class="staff-card">
+<img src="static/images/staf/chamdoen.jpg">
+<div class="staff-label">
+Ust. Chamdoen Ghozaly<br>
+<span>Marketing Executive</span>
+</div>
+</div>
+
+<div class="staff-card">
+<img src="static/images/staf/eko.jpg">
+<div class="staff-label">
+Eko Gunawan S.Pd<br>
+<span>Pengembangan SDM</span>
+</div>
+</div>
+
+<div class="staff-card">
+<img src="static/images/staf/alfian.jpg">
+<div class="staff-label">
+Alfian Syartono<br>
+<span>Staf Editing & Design</span>
+</div>
+</div>
+
+<div class="staff-card">
+<img src="static/images/staf/udin.jpg">
+<div class="staff-label">
+Udin Samsudin<br>
+<span>Bagian Umum</span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 Kurma Travel
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+const WA1="6281280803429";
+const WA2="6283875613645";
+const WA3="6287776042572";
+
+function openWA(text){
+  let pesan=encodeURIComponent(text);
+  wa1.href="https://wa.me/"+WA1+"?text="+pesan;
+  wa2.href="https://wa.me/"+WA2+"?text="+pesan;
+  wa3.href="https://wa.me/"+WA3+"?text="+pesan;
+  waModal.style.display="flex";
+}
+
+function closeWA(){
+  waModal.style.display="none";
+}
+</script>
+
+<script>
+const waFloat=document.getElementById("waFloat");
+window.addEventListener("scroll",()=>{
+  if(window.scrollY>300){
+    waFloat.classList.add("show");
+  }else{
+    waFloat.classList.remove("show");
+  }
+});
+</script>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+hamburger.addEventListener("click", ()=>{
+  navMenu.classList.toggle("show");
+});
+</script>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+  reveals.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    const win = window.innerHeight;
+    if(top < win - 100){
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+</script>
+
+</script>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", ()=>{
+  mobileMenu.classList.toggle("show");
+});
+</script>
+
+
+
+
+
+</body>
+</html>

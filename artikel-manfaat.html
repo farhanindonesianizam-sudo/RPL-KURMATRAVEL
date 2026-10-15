@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manfaat Umrah & Haji</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="static/css/style.css">
+
+<style>
+/* =========================================
+   MANFAAT UMRAH & HAJI - KURMA TRAVEL
+========================================= */
+
+:root {
+    --primary: #ed6b23;
+    --primary-dark: #cc5016;
+    --primary-light: #fff0e3;
+    --cream: #fff8f1;
+    --text: #39271f;
+    --text-soft: #75665c;
+    --border: #f0e2d5;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 300px;
+    height: 38vh;
+    max-height: 420px;
+
+    margin: 0;
+    padding: 40px 20px;
+    overflow: hidden;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(76, 37, 18, 0.80),
+            rgba(237, 107, 35, 0.70)
+        ),
+        url("static/images/hero.jpg") center 55% / cover no-repeat;
+}
+
+/* Ornamen dekoratif */
+.hero::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+
+    width: 280px;
+    height: 280px;
+    right: -100px;
+    bottom: -185px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 32px rgba(255, 255, 255, 0.055),
+        0 0 0 65px rgba(255, 255, 255, 0.035);
+
+    pointer-events: none;
+}
+
+/* Lapisan overlay */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 122, 0, 0.12),
+        rgba(35, 20, 12, 0.40)
+    );
+}
+
+/* Judul hero */
+.hero h1 {
+    position: relative;
+    z-index: 2;
+
+    max-width: 850px;
+    margin: 0;
+    padding: 0 15px;
+
+    color: var(--white);
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.8px;
+
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
+
+    animation: heroAppear 0.7s ease both;
+}
+
+.hero h1::after {
+    content: "";
+    display: block;
+
+    width: 65px;
+    height: 4px;
+    margin: 20px auto 0;
+
+    background: #ffd3a4;
+    border-radius: 10px;
+}
+
+/* =========================================
+   KARTU KONTEN
+========================================= */
+
+.content {
+    position: relative;
+    z-index: 3;
+
+    width: calc(100% - 40px);
+    max-width: 900px;
+
+    margin: -35px auto 60px;
+    padding: 42px 44px;
+
+    background: var(--white);
+    border: 1px solid rgba(240, 226, 213, 0.9);
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 45px rgba(74, 43, 24, 0.07),
+        0 3px 10px rgba(74, 43, 24, 0.025);
+}
+
+/* =========================================
+   JUDUL UTAMA BAGIAN
+========================================= */
+
+.content h2 {
+    position: relative;
+
+    margin: 32px 0 18px;
+    padding: 0 0 13px 16px;
+
+    color: var(--text);
+    font-size: 23px;
+    font-weight: 750;
+    line-height: 1.45;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.content h2:first-child {
+    margin-top: 0;
+}
+
+.content h2::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 0;
+
+    width: 5px;
+    height: 27px;
+
+    background: linear-gradient(
+        180deg,
+        #ff9a50,
+        var(--primary-dark)
+    );
+
+    border-radius: 8px;
+}
+
+/* =========================================
+   SUBJUDUL MANFAAT
+========================================= */
+
+.content h3 {
+    position: relative;
+
+    margin: 25px 0 12px;
+    padding-left: 13px;
+
+    color: var(--primary-dark);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.content h3::before {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    top: 4px;
+
+    width: 4px;
+    height: 18px;
+
+    background: #f6a36e;
+    border-radius: 6px;
+}
+
+/* =========================================
+   DAFTAR MANFAAT
+========================================= */
+
+.content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    margin: 0 0 25px;
+    padding: 0;
+
+    list-style: none;
+}
+
+.content li {
+    position: relative;
+
+    padding: 13px 16px 13px 43px;
+
+    color: #55483f;
+    background: #fffaf6;
+
+    border: 1px solid #f5e9df;
+    border-radius: 11px;
+
+    font-size: 14px;
+    line-height: 1.75;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* Ikon centang */
+.content li::before {
+    content: "✓";
+    position: absolute;
+
+    left: 14px;
+    top: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 19px;
+    height: 19px;
+
+    color: var(--primary-dark);
+    background: #ffe8d5;
+    border-radius: 50%;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* Judul di dalam daftar */
+.content li strong {
+    display: inline-block;
+    margin-bottom: 3px;
+    color: var(--text);
+    font-weight: 750;
+}
+
+/* Efek hover */
+.content li:hover {
+    background: var(--primary-light);
+    border-color: #f2d2bb;
+    transform: translateX(3px);
+}
+
+/* =========================================
+   TOMBOL KEMBALI
+========================================= */
+
+.back {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 38px;
+    padding-top: 27px;
+
+    border-top: 1px solid var(--border);
+}
+
+.back a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 49px;
+    padding: 13px 27px;
+
+    color: var(--white);
+    background: linear-gradient(
+        135deg,
+        #f58a3d,
+        var(--primary)
+    );
+
+    border: 1px solid transparent;
+    border-radius: 50px;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+
+    box-shadow: 0 7px 18px rgba(237, 107, 35, 0.2);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.back a:hover {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+
+    transform: translateY(-3px);
+    box-shadow: 0 11px 24px rgba(237, 107, 35, 0.28);
+}
+
+.back a:focus-visible {
+    outline: 3px solid rgba(237, 107, 35, 0.4);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   ANIMASI HERO
+========================================= */
+
+@keyframes heroAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 250px;
+        height: 32vh;
+    }
+
+    .content {
+        width: calc(100% - 32px);
+        padding: 32px 26px;
+        margin-top: -28px;
+    }
+
+    .content h2 {
+        font-size: 21px;
+    }
+
+    .content h3 {
+        font-size: 16px;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 220px;
+        height: auto;
+        padding: 48px 18px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+        line-height: 1.3;
+        letter-spacing: -0.4px;
+    }
+
+    .hero h1::after {
+        width: 52px;
+        height: 3px;
+        margin-top: 16px;
+    }
+
+    .content {
+        width: calc(100% - 28px);
+        margin-top: -24px;
+        margin-bottom: 36px;
+        padding: 27px 18px;
+        border-radius: 16px;
+    }
+
+    .content h2 {
+        margin-top: 27px;
+        margin-bottom: 15px;
+        padding-left: 13px;
+        padding-bottom: 10px;
+        font-size: 19px;
+    }
+
+    .content h2::before {
+        width: 4px;
+        height: 23px;
+    }
+
+    .content h3 {
+        margin-top: 22px;
+        font-size: 15px;
+    }
+
+    .content ul {
+        gap: 8px;
+        margin-bottom: 22px;
+    }
+
+    .content li {
+        padding: 12px 11px 12px 37px;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .content li::before {
+        left: 11px;
+        top: 14px;
+        width: 17px;
+        height: 17px;
+        font-size: 11px;
+    }
+
+    .back {
+        margin-top: 28px;
+        padding-top: 22px;
+    }
+
+    .back a {
+        min-height: 45px;
+        padding: 12px 21px;
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   AKSESIBILITAS
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <h1>Manfaat Umrah & Haji</h1>
+</section>
+
+
+<!-- CONTENT -->
+<div class="content">
+
+  <h2>Keutamaan Haji</h2>
+  <ul>
+    <li><strong>Menghapus Dosa</strong><br>
+      Haji yang dilakukan dengan ikhlas dan sesuai sunnah akan menghapus dosa-dosa yang telah lalu.
+    </li>
+    <li><strong>Balasan Surga</strong><br>
+      Haji mabrur tidak ada balasan baginya kecuali surga.
+    </li>
+    <li><strong>Penyempurna Keislaman</strong><br>
+      Haji adalah puncak ibadah fisik, hati, dan harta yang menyempurnakan rukun Islam.
+    </li>
+    <li><strong>Meningkatkan Ketakwaan</strong><br>
+      Jamaah dilatih untuk sabar, ikhlas, serta menjaga lisan dan perilaku.
+    </li>
+    <li><strong>Persatuan Umat Islam</strong><br>
+      Mempertemukan jutaan Muslim dari berbagai negara tanpa membedakan suku dan status sosial.
+    </li>
+  </ul>
+
+  <h2>Manfaat Umroh & Haji Bagi Kehidupan</h2>
+
+  <h3>1. Manfaat Spiritual</h3>
+  <ul>
+    <li>Hati lebih tenang dan bersih.</li>
+    <li>Meningkatkan kedekatan dengan Allah SWT.</li>
+    <li>Menumbuhkan rasa syukur dan tawakal.</li>
+  </ul>
+
+  <h3>2. Manfaat Mental & Emosional</h3>
+  <ul>
+    <li>Melatih kesabaran dan pengendalian diri.</li>
+    <li>Membentuk pribadi yang lebih rendah hati.</li>
+    <li>Menguatkan mental menghadapi ujian hidup.</li>
+  </ul>
+
+  <h3>3. Manfaat Sosial</h3>
+  <ul>
+    <li>Memperluas silaturahmi.</li>
+    <li>Belajar toleransi dan kebersamaan.</li>
+    <li>Menumbuhkan kepedulian terhadap sesama.</li>
+  </ul>
+
+  <h3>4. Manfaat Ekonomi & Kehidupan Pribadi</h3>
+  <ul>
+    <li>Membuat hidup lebih terarah dan disiplin.</li>
+    <li>Menjadi motivasi memperbaiki rezeki yang halal.</li>
+    <li>Meraih keberkahan setelah pulang dari Tanah Suci.</li>
+  </ul>
+
+  <div class="back">
+    <a href="artikel.html">⬅ Kembali ke Artikel</a>
+  </div>
+
+</div>
+
+</body>
+</html>

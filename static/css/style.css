@@ -1,0 +1,3742 @@
+/* =========================================
+   KURMA TRAVEL - HOME PAGE
+   Modern, Elegant & Responsive Design
+========================================= */
+
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+/* COLOR VARIABLES */
+:root {
+    --primary: #e87824;
+    --primary-dark: #bd5416;
+    --primary-light: #fff0e3;
+    --green: #244b3a;
+    --green-dark: #173528;
+    --white: #ffffff;
+    --text: #26352e;
+    --muted: #718078;
+    --bg: #fffdf9;
+    --border: #eee8df;
+    --shadow: 0 12px 35px rgba(37, 53, 43, 0.09);
+    --shadow-hover: 0 20px 45px rgba(37, 53, 43, 0.15);
+    --radius: 18px;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+body, button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+.container {
+    width: min(1180px, 90%);
+    margin-inline: auto;
+}
+
+section {
+    position: relative;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: #f18b3c;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(105, 135, 120, 0.08);
+    box-shadow: 0 4px 20px rgba(195, 206, 200, 0.04);
+}
+
+.nav-flex {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 53px;
+    height: 53px;
+    object-fit: contain;
+}
+
+.logo span {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    color: var(--white);
+    white-space: nowrap;
+}
+
+#navMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+#navMenu a {
+    position: relative;
+    padding: 10px 13px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color 0.25s ease;
+}
+
+#navMenu a::after {
+    content: "";
+    position: absolute;
+    left: 13px;
+    right: 13px;
+    bottom: 3px;
+    height: 2px;
+    background: var(--primary-dark);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+#navMenu a:hover,
+#navMenu a.active {
+    color: var(--primary-dark);
+}
+
+#navMenu a:hover::after,
+#navMenu a.active::after {
+    transform: scaleX(1);
+}
+
+.btn-wa {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    background: var(--white);
+    color: var(--primary-dark);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 0 5px 15px  #f18b3c;
+    transition: background 0.25s, transform 0.25s;
+}
+
+.btn-wa::before {
+    content: "◉";
+    font-size: 16px;
+}
+
+.btn-wa:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+}
+
+/* HAMBURGER */
+
+.hamburger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    cursor: pointer;
+    color: var(--green);
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.menu-text {
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    position: relative;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    isolation: isolate;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color:  #f18b3c;;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(
+            ellipse at 80% 20%,
+            rgba(232, 120, 36, 0.08),;
+            transparent 45%
+        );
+}
+
+.hero .overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        90deg,
+        rgba(87, 54, 1, 0.88) 0%,
+        rgba(87, 54, 1, 0.88)  48%,
+        rgba(20, 43, 31, 0.32) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    padding-top: 75px;
+    padding-bottom: 65px;
+    color: var(--white);
+    animation: heroEnter 0.8s ease both;
+}
+
+.hero h1 {
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 5.1vw, 66px);
+    font-weight: 600;
+    line-height: 1.16;
+    letter-spacing: -1.3px;
+    text-wrap: balance;
+}
+
+.hero h1::after {
+    content: "";
+    display: block;
+    width: 76px;
+    height: 4px;
+    margin-top: 25px;
+    background: var(--primary);
+    border-radius: 5px;
+}
+
+.hero-content > p {
+    max-width: 570px;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.hero-btn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.btn-primary,
+.btn-outline {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 49px;
+    padding: 13px 23px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.btn-primary {
+    color: var(--white);
+    background: var(--primary);
+    box-shadow: 0 7px 18px rgba(232, 120, 36, 0.22);
+}
+
+.btn-primary:hover {
+    background: #f18b3c;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(232, 120, 36, 0.3);
+}
+
+.btn-outline {
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--green);
+    transform: translateY(-3px);
+}
+
+.follow-text {
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.hero-social {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 11px;
+}
+
+.social {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 50%;
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(8px);
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.social svg {
+    width: 19px;
+    height: 19px;
+    fill: currentColor;
+}
+
+.social:hover {
+    transform: translateY(-4px);
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+/* =========================================
+   PACKAGE CARDS
+========================================= */
+
+.package-grid {
+    width: min(1180px, 90%);
+    margin: 75px auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.package-card {
+    min-width: 0;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-hover);
+}
+
+.package-image {
+    position: relative;
+    height: 265px;
+    overflow: hidden;
+    background: #e9e5dc;
+}
+
+.package-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.55s ease;
+}
+
+.package-card:hover .package-image img {
+    transform: scale(1.06);
+}
+
+.badge {
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    padding: 7px 13px;
+    border-radius: 6px;
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+}
+
+.badge.promo {
+    background: var(--primary);
+}
+
+.badge.best {
+    background: var(--green);
+}
+
+.package-body {
+    padding: 25px 27px 28px;
+}
+
+.package-body h3 {
+    margin-bottom: 16px;
+    color: var(--green);
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    line-height: 1.35;
+}
+
+.package-body ul {
+    display: grid;
+    gap: 9px;
+    margin-bottom: 22px;
+    list-style: none;
+}
+
+.package-body li {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #65736a;
+    font-size: 13px;
+}
+
+.price {
+    margin-bottom: 20px;
+    color: var(--primary-dark);
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.package-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 18px;
+    border: 1px solid var(--green);
+    border-radius: 9px;
+    background: var(--green);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s;
+}
+
+.package-btn:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   GENERAL SECTIONS
+========================================= */
+
+.section {
+    padding: 85px 0;
+    overflow: hidden;
+}
+
+.section.alt {
+    background:
+        radial-gradient(
+            ellipse at top right,
+            rgba(232, 120, 36, 0.055),
+            transparent 42%
+        ),
+        #f5f7f2;
+}
+
+.section h2 {
+    position: relative;
+    margin-bottom: 40px;
+    color: var(--green);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 39px);
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.section h2::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 3px;
+    margin: 15px auto 0;
+    border-radius: 10px;
+    background: var(--primary);
+}
+
+/* =========================================
+   GALLERY SLIDER
+========================================= */
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    padding: 4px 0 15px;
+}
+
+.slides {
+    display: flex;
+    align-items: stretch;
+    gap: 15px;
+    width: max-content;
+    will-change: transform;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slides img {
+    width: 280px;
+    height: 215px;
+    flex: 0 0 280px;
+    object-fit: cover;
+    border-radius: 14px;
+    background: #e8e6df;
+    box-shadow: 0 6px 18px rgba(25, 43, 32, 0.09);
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.slides img:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.slider .prev,
+.slider .next {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    width: 43px;
+    height: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    color: var(--green);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+    font-size: 15px;
+    transition: background 0.25s, color 0.25s;
+}
+
+.slider .prev {
+    left: 10px;
+}
+
+.slider .next {
+    right: 10px;
+}
+
+.slider .prev:hover,
+.slider .next:hover {
+    color: var(--white);
+    background: var(--primary);
+}
+
+
+/* ==========================================
+   MOBILE FIX - KEUNGGULAN KURMA TRAVEL
+========================================== */
+
+@media screen and (max-width: 760px) {
+
+    .section.alt {
+        width: 100%;
+        padding: 32px 0;
+        overflow: hidden;
+    }
+
+    .section.alt .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 16px;
+    }
+
+    .section.alt h2 {
+        margin: 0 0 28px;
+        padding: 0 5px;
+        font-size: clamp(25px, 6.5vw, 32px);
+        line-height: 1.25;
+        text-align: center;
+        overflow-wrap: break-word;
+    }
+
+    /* GRID KEUNGGULAN */
+    .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        width: 100%;
+        align-items: stretch;
+    }
+
+    /* KARTU KEUNGGULAN */
+    .grid-4 .icon-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+        min-height: 112px;
+        padding: 18px 10px;
+        margin: 0;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 5px 18px rgba(35, 65, 49, 0.06);
+        text-align: center;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    /* IKON DAN TEKS TETAP RAPI */
+    .grid-4 .icon-card br {
+        display: none;
+    }
+}
+
+/* HP KECIL */
+@media screen and (max-width: 380px) {
+
+    .section.alt .container {
+        padding: 0 12px;
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .grid-4 .icon-card {
+        min-height: 105px;
+        padding: 14px 7px;
+        font-size: 12px;
+        line-height: 1.55;
+    }
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    padding: 27px 20px;
+    border-top: 3px solid var(--primary);
+    background: var(--green-dark);
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 12px;
+    text-align: center;
+}
+
+/* =========================================
+   WHATSAPP MODAL
+========================================= */
+
+.wa-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(14, 29, 21, 0.67);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.wa-box {
+    width: min(410px, 100%);
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    background: var(--bg);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+    animation: modalEnter 0.25s ease both;
+}
+
+.wa-box h3 {
+    margin-bottom: 23px;
+    color: var(--green);
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    text-align: center;
+}
+
+.wa-box a {
+    display: block;
+    margin-bottom: 11px;
+    padding: 13px 16px;
+    border: 1px solid #dce9de;
+    border-radius: 9px;
+    background: #f2f8f2;
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
+}
+
+.wa-box a:hover {
+    border-color: #25a366;
+    background: #25a366;
+    color: var(--white);
+}
+
+.wa-box button {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: #ecebe5;
+    color: #47534b;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.wa-box button:hover {
+    background: #deddd5;
+}
+
+/* =========================================
+   FLOATING WHATSAPP
+========================================= */
+
+.wa-float {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 2000;
+    width: 57px;
+    height: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    background: #20b965;
+    box-shadow: 0 7px 25px rgba(32, 185, 101, 0.32);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px) scale(0.9);
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        background 0.25s ease;
+}
+
+.wa-float.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.wa-float:hover {
+    background: #159c51;
+    transform: translateY(-4px) scale(1.04);
+}
+
+.wa-float::before {
+    content: "Chat Kami";
+    position: absolute;
+    right: 68px;
+    padding: 7px 12px;
+    border-radius: 7px;
+    background: var(--green-dark);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(5px);
+    transition: 0.2s ease;
+}
+
+.wa-float:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* =========================================
+   LIGHTBOX
+========================================= */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 4000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: rgba(7, 16, 11, 0.94);
+    cursor: zoom-out;
+}
+
+.lightbox img {
+    max-width: min(1100px, 95vw);
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
+    animation: modalEnter 0.25s ease both;
+}
+
+/* =========================================
+   REVEAL ANIMATION
+========================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   KEYFRAMES
+========================================= */
+
+@keyframes heroEnter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes modalEnter {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+    .nav-flex {
+        gap: 14px;
+    }
+
+    .logo {
+        gap: 8px;
+    }
+
+    .logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .logo span {
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+
+    #navMenu {
+        gap: 0;
+    }
+
+    #navMenu a {
+        padding-inline: 9px;
+        font-size: 12px;
+    }
+
+    #navMenu a::after {
+        left: 9px;
+        right: 9px;
+    }
+
+    .btn-wa {
+        padding: 11px 13px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 590px;
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .package-image {
+        height: 230px;
+    }
+}
+
+
+
+
+
+/* ==========================================
+   KURMA TRAVEL - MOBILE LAYOUT FIX
+========================================== */
+
+@media screen and (max-width: 760px) {
+
+    /* RESET LEBAR HALAMAN */
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: clip;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    /* NAVBAR */
+    .navbar {
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        z-index: 1000;
+    }
+
+    .navbar .container.nav-flex {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        min-height: 66px;
+        margin: 0;
+        padding: 8px 14px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .hamburger {
+        display: flex;
+        flex: 1 1 0;
+        min-width: 0;
+        align-items: center;
+        justify-content: flex-start;
+        order: 1;
+        cursor: pointer;
+    }
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+
+    .logo img {
+        display: block;
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+    }
+
+    .logo span {
+        display: none;
+    }
+
+    .navbar .btn-wa {
+        flex: 1 1 0;
+        min-width: 0;
+        order: 3;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 9px 0;
+        margin: 0;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    /* MENU MOBILE: TUTUP SECARA DEFAULT */
+    .navbar #navMenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 8px 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: #fffdf9;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+        border-top: 1px solid #eadfd2;
+        z-index: 1001;
+    }
+
+    .navbar #navMenu.show {
+        display: flex;
+    }
+
+    .navbar #navMenu a {
+        display: block;
+        width: 100%;
+        padding: 12px 10px;
+        font-size: 14px;
+        border-bottom: 1px solid #eee8df;
+    }
+
+    /* HERO FULL WIDTH */
+    .hero {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin: 0;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .hero .container,
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 28px 18px;
+    }
+
+    .hero h1 {
+        font-size: clamp(25px, 7vw, 34px);
+        line-height: 1.2;
+        overflow-wrap: break-word;
+    }
+
+    .hero p {
+        max-width: 100%;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .hero-btn {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .hero-btn a {
+        max-width: 100%;
+        font-size: 11px;
+    }
+
+    .hero-social {
+        max-width: 100%;
+        flex-wrap: wrap;
+    }
+
+    /* GRID PAKET */
+    .package-grid {
+        width: calc(100% - 28px);
+        max-width: 520px;
+        margin: 24px auto 40px;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    .package-grid > .package-card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        overflow: hidden;
+        border-radius: 13px;
+    }
+
+    .package-card .package-image {
+        position: relative;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+    }
+
+    .package-card .package-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .package-card .package-body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        width: 100%;
+        min-width: 0;
+        padding: 12px 9px;
+    }
+
+    .package-card .package-body h3 {
+        margin: 0 0 10px;
+        font-size: clamp(15px, 4.3vw, 19px);
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+    }
+
+    .package-card .package-body ul {
+        padding: 0;
+        margin: 0 0 12px;
+        list-style: none;
+    }
+
+    .package-card .package-body li {
+        font-size: 10px;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+    }
+
+    .package-card .price {
+        max-width: 100%;
+        margin: auto 0 12px;
+        padding-top: 4px;
+        font-size: clamp(13px, 3.7vw, 17px);
+        line-height: 1.4;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    /* TOMBOL PAKET */
+    .package-card .package-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 7px;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .package-card .package-actions .detail-btn,
+    .package-card .package-actions .package-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-width: 0;
+        min-height: 36px;
+        margin: 0;
+        padding: 8px 4px;
+        font-size: 10px;
+        line-height: 1.35;
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    /* SECTION LAIN */
+    .section {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .section > .container,
+    .section .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .slider {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    footer {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* HP SANGAT KECIL */
+@media screen and (max-width: 360px) {
+
+    .package-grid {
+        width: calc(100% - 20px);
+        gap: 10px;
+    }
+
+    .package-card .package-body {
+        padding: 10px 7px;
+    }
+
+    .package-card .package-body h3 {
+        font-size: 15px;
+    }
+
+    .package-card .package-body li {
+        font-size: 9px;
+    }
+
+    .package-card .price {
+        font-size: 12px;
+    }
+
+    .package-card .package-actions .detail-btn,
+    .package-card .package-actions .package-btn {
+        font-size: 9px;
+    }
+}
+
+
+
+/* ==========================================
+   FIX NAVBAR MOBILE KURMA TRAVEL
+========================================== */
+
+@media screen and (max-width: 760px) {
+
+    /* HEADER */
+    .navbar {
+        position: relative;
+        z-index: 1000;
+        width: 100%;
+    }
+
+    .navbar .container.nav-flex {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 68px;
+        padding: 10px 14px;
+        gap: 8px;
+    }
+
+    /* MENU KIRI */
+    .hamburger {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 7px;
+        z-index: 2;
+    }
+
+    .hamburger .menu-text {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    /* LOGO TENGAH */
+    .navbar .logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        z-index: 3;
+    }
+
+
+    .navbar .logo img {
+        display: block;
+        width: 100px;
+        height: 70px;
+        object-fit: contain;
+    }
+
+
+    .navbar .logo span {
+        display: none;
+    }
+
+    /* WHATSAPP KANAN */
+    .navbar .btn-wa {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px 0;
+        margin: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: #244b3a;
+        box-shadow: none;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    /* DROPDOWN MENU */
+    .navbar #navMenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        margin: 0;
+        padding: 8px 16px 12px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: #fffdf9;
+        border-top: 1px solid #f0e4d8;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+        z-index: 1001;
+    }
+
+    /* MUNCUL SAAT MENU DIKLIK */
+    .navbar #navMenu.show {
+        display: flex;
+    }
+
+    /* PAKSA WARNA TEKS TERBACA */
+    .navbar #navMenu a,
+    .navbar #navMenu a:link,
+    .navbar #navMenu a:visited {
+        display: block;
+        width: 100%;
+        padding: 13px 12px;
+        margin: 0;
+        color: #244b3a !important;
+        background: transparent;
+        border-bottom: 1px solid #eee8df;
+        border-radius: 0;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4;
+        text-decoration: none;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navbar #navMenu a.active {
+        color: #c95712 !important;
+        background: #fff0e3;
+        border-radius: 6px;
+    }
+
+    .navbar #navMenu a:last-child {
+        border-bottom: none;
+    }
+
+    .navbar #navMenu a::before,
+    .navbar #navMenu a::after {
+        display: none !important;
+        content: none !important;
+    }
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================
+   PACKAGE DETAIL MODAL
+========================================= */
+
+.package-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.package-actions .package-btn {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 8px;
+    font-size: 12px;
+}
+
+.detail-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 8px;
+    border: 1px solid var(--primary);
+    border-radius: 9px;
+    background: var(--white);
+    color: var(--primary-dark);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.detail-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(232, 120, 36, 0.2);
+}
+
+.package-detail-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto;
+    background: rgba(9, 19, 13, 0.88);
+    backdrop-filter: blur(7px);
+}
+
+.package-detail-modal.show {
+    display: flex;
+}
+
+.package-detail-box {
+    position: relative;
+    width: min(500px, 100%);
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    background: #fffdf9;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+    animation: modalEnter 0.25s ease both;
+}
+
+.package-detail-box img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: calc(92vh - 100px);
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.close-detail {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 2;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    border-radius: 50%;
+    background: var(--green);
+    color: white;
+    font-size: 27px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.close-detail:hover {
+    background: var(--primary);
+    transform: rotate(90deg);
+}
+
+.poster-download {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 43px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: var(--green);
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    transition: background 0.2s;
+}
+
+.poster-download:hover {
+    background: var(--primary);
+}
+
+@media (max-width: 480px) {
+    .package-detail-modal {
+        padding: 12px;
+    }
+
+    .package-detail-box {
+        max-height: 94vh;
+        padding: 10px;
+    }
+
+    .package-detail-box img {
+        max-height: calc(94vh - 90px);
+    }
+
+    .package-actions {
+        gap: 8px;
+    }
+
+    .package-actions .package-btn,
+    .detail-btn {
+        padding: 11px 5px;
+        font-size: 11px;
+    }
+}
+
+
+.package-detail-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.88);
+    overflow-y: auto;
+}
+
+.package-detail-box {
+    position: relative;
+    max-width: 600px;
+    max-height: 95vh;
+    padding: 15px;
+    border-radius: 14px;
+    background: white;
+}
+
+.package-detail-box img {
+    display: block;
+    max-width: 100%;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.close-detail {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 2;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: #244b3a;
+    color: white;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+.close-detail:hover {
+    background: #e87824;
+}
+
+/* LOGO DESKTOP */
+@media screen and (min-width: 761px) {
+    .navbar .logo img {
+        width: 85px;
+        height: 85px;
+        object-fit: contain;
+    }
+
+    .navbar .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .navbar .logo span {
+        font-size: 22px;
+        font-weight: 700;
+    }
+}
+
+
+.staff-heading {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.staff-heading > span {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--kt-orange-dark);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+}
+
+.staff-heading h2 {
+    margin: 0 0 14px;
+    color: var(--kt-ink);
+    font-size: clamp(27px, 4vw, 39px);
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.staff-heading p {
+    margin: 0;
+    color: var(--kt-muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+    .staff-heading {
+        margin-bottom: 38px;
+    }
+
+    .staff-heading p {
+        font-size: 13px;
+    }
+}
+
+
+/* ==========================================
+   KURMA TRAVEL — PREMIUM TEAM SECTION
+========================================== */
+
+:root {
+    --kt-orange: #f28a3b;
+    --kt-orange-dark: #c7682b;
+    --kt-ink: #34271f;
+    --kt-muted: #817268;
+    --kt-cream: #fff8f0;
+    --kt-line: #efddcb;
+}
+
+/* LATAR SECTION */
+.section:has(.staff-grid) {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 85px 0 105px;
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(242, 138, 59, 0.13),
+            transparent 42%
+        ),
+        linear-gradient(180deg, #fffaf5 0%, #fff4e8 100%);
+}
+
+/* ORNAMEN GEOMETRIS */
+.section:has(.staff-grid)::before {
+    position: absolute;
+    z-index: -1;
+    top: 60px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(199, 104, 43, 0.12);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 22px rgba(199, 104, 43, 0.025),
+        0 0 0 48px rgba(199, 104, 43, 0.025);
+    content: "";
+    pointer-events: none;
+}
+
+.section:has(.staff-grid)::after {
+    position: absolute;
+    z-index: -1;
+    right: -110px;
+    bottom: 60px;
+    width: 330px;
+    height: 330px;
+    border: 1px solid rgba(199, 104, 43, 0.12);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 24px rgba(199, 104, 43, 0.025),
+        0 0 0 52px rgba(199, 104, 43, 0.025);
+    content: "";
+    pointer-events: none;
+}
+
+/* LEBARKAN AREA TIM */
+.section:has(.staff-grid) > .container {
+    width: min(1180px, calc(100% - 64px));
+    max-width: 1180px;
+    margin-inline: auto;
+}
+
+/* SUSUNAN UTAMA */
+.staff-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    position: relative;
+    z-index: 1;
+}
+
+/* DIREKTUR DI TENGAH */
+.staff-center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.staff-center::after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 2px;
+    height: 48px;
+    background: linear-gradient(
+        180deg,
+        var(--kt-orange),
+        rgba(242, 138, 59, 0.1)
+    );
+    content: "";
+}
+
+/* KARTU DASAR */
+.staff-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 245px;
+    min-width: 0;
+    padding: 25px 16px 23px;
+    border: 1px solid rgba(232, 207, 183, 0.9);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 9px 25px rgba(82, 53, 31, 0.045);
+    text-align: center;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.staff-card:hover {
+    transform: translateY(-8px);
+    border-color: #efa96e;
+    box-shadow: 0 20px 42px rgba(128, 76, 37, 0.12);
+}
+
+/* AKSEN ORANYE */
+.staff-grid-4 .staff-card::before {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    width: 54px;
+    height: 4px;
+    border-radius: 0 0 8px 8px;
+    background: linear-gradient(
+        90deg,
+        #ffc078,
+        var(--kt-orange-dark)
+    );
+    content: "";
+    transform: translateX(-50%);
+}
+
+/* FOTO PNG */
+.staff-card > img {
+    display: block;
+    width: 168px;
+    height: 168px;
+    max-width: 100%;
+    margin: 0 auto 18px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    object-fit: contain;
+    object-position: center;
+    box-shadow: none;
+    transition: transform 0.35s ease;
+}
+
+.staff-card:hover > img {
+    transform: scale(1.055);
+}
+
+/* DIREKTUR */
+.staff-card.big {
+    max-width: 310px;
+    padding: 27px 25px 25px;
+    border: 1px solid #edb17e;
+    border-radius: 28px;
+    background: linear-gradient(
+        145deg,
+        #fff 15%,
+        #fff4e6 100%
+    );
+    box-shadow:
+        0 15px 40px rgba(135, 77, 36, 0.10),
+        inset 0 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+.staff-card.big::before {
+    margin-bottom: 15px;
+    padding: 8px 17px;
+    border: 1px solid #f6d6b8;
+    border-radius: 40px;
+    background: #fff0df;
+    color: var(--kt-orange-dark);
+    content: "PIMPINAN UTAMA";
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.staff-card.big > img {
+    width: 205px;
+    height: 205px;
+    margin-bottom: 17px;
+}
+
+/* NAMA */
+.staff-label {
+    width: 100%;
+    min-height: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--kt-ink);
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.55;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.staff-label span {
+    display: block;
+    margin-top: 8px;
+    color: var(--kt-orange-dark);
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.7;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* GRID STAF: 4 KOLOM */
+.staff-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    justify-items: center;
+    gap: 25px;
+    width: 100%;
+}
+
+/* KARTU STAF SEJAJAR */
+.staff-grid-4 .staff-card {
+    max-width: none;
+    min-height: 280px;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 24px 17px 22px;
+    justify-content: flex-start;
+}
+
+.staff-grid-4 .staff-card > img {
+    width: 170px;
+    height: 170px;
+}
+
+/* HERO */
+.hero[style*="hero.jpg"] {
+    position: relative;
+    min-height: 300px;
+    height: 40vh;
+    max-height: 420px;
+    background-position: center;
+    background-size: cover;
+}
+
+.hero[style*="hero.jpg"] .overlay {
+    background: linear-gradient(
+        90deg,
+        rgba(43, 28, 18, 0.78),
+        rgba(43, 28, 18, 0.28)
+    );
+}
+
+.hero[style*="hero.jpg"] .hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero[style*="hero.jpg"] h1 {
+    color: white;
+    font-size: clamp(34px, 5vw, 52px);
+    font-weight: 800;
+}
+
+.hero[style*="hero.jpg"] p {
+    color: #fff0e2;
+    font-size: 16px;
+}
+
+/* FOOTER */
+footer {
+    padding: 27px 15px;
+    background: #38291f;
+    color: #fff3e8;
+    text-align: center;
+}
+
+/* LAPTOP */
+@media (max-width: 1000px) {
+    .staff-grid-4 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .staff-grid-4 .staff-card > img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* TABLET DAN HP */
+@media (max-width: 680px) {
+    .section:has(.staff-grid) {
+        padding: 55px 0 70px;
+    }
+
+    .section:has(.staff-grid) > .container {
+        width: calc(100% - 32px);
+    }
+
+    .staff-grid {
+        gap: 32px;
+    }
+
+    .staff-center::after {
+        height: 32px;
+    }
+
+    .staff-grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .staff-grid-4 .staff-card {
+        min-height: 235px;
+        padding: 19px 9px;
+        border-radius: 17px;
+    }
+
+    .staff-grid-4 .staff-card > img {
+        width: 125px;
+        height: 125px;
+        margin-bottom: 14px;
+    }
+
+    .staff-card.big {
+        max-width: 260px;
+    }
+
+    .staff-card.big > img {
+        width: 170px;
+        height: 170px;
+    }
+
+    .staff-label {
+        font-size: 12px;
+    }
+
+    .staff-label span {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* HP KECIL */
+@media (max-width: 380px) {
+    .staff-grid-4 {
+        gap: 10px;
+    }
+
+    .staff-grid-4 .staff-card {
+        min-height: 215px;
+        padding: 16px 7px;
+    }
+
+    .staff-grid-4 .staff-card > img {
+        width: 105px;
+        height: 105px;
+    }
+
+    .staff-card.big > img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* KURANGI ANIMASI JIKA DIMINTA SISTEM */
+@media (prefers-reduced-motion: reduce) {
+    .staff-card,
+    .staff-card > img {
+        transition: none;
+    }
+
+    .staff-card:hover,
+    .staff-card:hover > img {
+        transform: none;
+    }
+}
+
+
+.staff-heading {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+    margin: 35px auto 55px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.staff-heading > span {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--kt-orange-dark);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+}
+
+.staff-heading h2 {
+    margin: 0 0 14px;
+    color: var(--kt-ink);
+    font-size: clamp(27px, 4vw, 39px);
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.staff-heading p {
+    margin: 0;
+    color: var(--kt-muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+    .staff-heading {
+        margin: 20px auto 38px;
+        padding-top: 10px;
+    }
+
+    .staff-heading p {
+        font-size: 13px;
+    }
+}
+
+/* KONTAK */
+
+/* =========================================
+   KONTAK KURMA TRAVEL — PREMIUM REDESIGN
+========================================= */
+
+.section:has(.contact-grid) {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 85px 0 95px;
+    background: #fff8f0;
+}
+
+.section:has(.contact-grid)::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -130px;
+    right: -100px;
+    width: 340px;
+    height: 340px;
+    border: 1px solid rgba(230, 125, 49, 0.15);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 28px rgba(230, 125, 49, 0.035),
+        0 0 0 58px rgba(230, 125, 49, 0.025);
+    pointer-events: none;
+}
+
+/* GRID */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.12fr 1fr;
+    align-items: stretch;
+    gap: 24px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* KARTU */
+.contact-grid .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 310px;
+    padding: 30px;
+    overflow: hidden;
+    border: 1px solid #f0dfcf;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 12px 35px rgba(79, 47, 24, 0.045);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.contact-grid .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 30px;
+    width: 54px;
+    height: 4px;
+    border-radius: 0 0 6px 6px;
+    background: #ed8137;
+}
+
+.contact-grid .card:hover {
+    transform: translateY(-6px);
+    border-color: #edc09d;
+    box-shadow: 0 22px 45px rgba(79, 47, 24, 0.09);
+}
+
+/* HEADING KARTU */
+.contact-grid .card h3 {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin: 0 0 25px;
+    color: #38291f;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+/* LINGKARAN IKON PADA HEADING */
+.contact-grid .card h3::first-letter {
+    font-size: 22px;
+}
+
+/* BARIS INFORMASI */
+.contact-row {
+    width: 100%;
+    margin: 0 0 12px;
+    padding: 14px 16px;
+    border: 1px solid #f2e7dc;
+    border-radius: 13px;
+    background: #fffaf6;
+    box-sizing: border-box;
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.contact-row:hover {
+    border-color: #efc29e;
+    background: #fff2e5;
+}
+
+.contact-row a {
+    display: block;
+    color: #49372a;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.8;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.contact-row a:hover {
+    color: #c86427;
+}
+
+/* WHATSAPP */
+.contact-grid .card:first-child .contact-row {
+    display: flex;
+    align-items: center;
+    min-height: 61px;
+}
+
+/* ALAMAT: KARTU UTAMA */
+.contact-grid .card:nth-child(2) {
+    border-color: #edc29f;
+    background:
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(242, 138, 59, 0.10),
+            transparent 45%
+        ),
+        #fff;
+}
+
+.contact-grid .card:nth-child(2) .contact-row {
+    padding: 18px;
+    margin-bottom: 24px;
+    background: #fff8f1;
+}
+
+/* TOMBOL MAPS */
+.map-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    gap: 9px;
+    margin-top: auto;
+    padding: 13px 19px;
+    border: 1px solid #ed8137;
+    border-radius: 12px;
+    background: #ed8137;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.map-btn:hover {
+    transform: translateY(-2px);
+    background: #c9682b;
+    box-shadow: 0 8px 20px rgba(201, 104, 43, 0.22);
+}
+
+/* EMAIL: TAMBAHAN INFORMASI VISUAL */
+.contact-grid .card:nth-child(3) {
+    background:
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(242, 138, 59, 0.07),
+            transparent 48%
+        ),
+        #fff;
+}
+
+.contact-grid .card:nth-child(3) .contact-row {
+    margin-bottom: 0;
+}
+
+/* CTA PREMIUM */
+.cta {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 66px 24px 70px;
+    background: linear-gradient(115deg, #b95e2b 0%, #e67b34 52%, #f49b4f 100%);
+    text-align: center;
+}
+
+.cta::before,
+.cta::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cta::before {
+    top: -180px;
+    left: -80px;
+    box-shadow:
+        0 0 0 25px rgba(255, 255, 255, 0.045),
+        0 0 0 52px rgba(255, 255, 255, 0.035);
+}
+
+.cta::after {
+    right: -80px;
+    bottom: -200px;
+    box-shadow:
+        0 0 0 25px rgba(255, 255, 255, 0.045),
+        0 0 0 52px rgba(255, 255, 255, 0.035);
+}
+
+.cta .container {
+    position: relative;
+    z-index: 1;
+}
+
+.cta h2 {
+    margin: 0 0 13px;
+    color: #fff;
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.7px;
+}
+
+.cta p {
+    max-width: 540px;
+    margin: 0 auto 27px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.cta .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 14px 24px;
+    border: 1px solid #fff;
+    border-radius: 13px;
+    background: #fff;
+    color: #bd6429;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(75, 40, 17, 0.12);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.cta .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 13px 30px rgba(75, 40, 17, 0.20);
+}
+
+/* TABLET */
+@media (max-width: 1000px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .contact-grid .card {
+        min-height: 280px;
+        padding: 25px;
+    }
+
+    .contact-grid .card:nth-child(3) {
+        grid-column: 1 / -1;
+        min-height: auto;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 620px) {
+    .section:has(.contact-grid) {
+        padding: 42px 0 52px;
+    }
+
+    .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 17px;
+    }
+
+    .contact-grid .card,
+    .contact-grid .card:nth-child(3) {
+        grid-column: auto;
+        min-height: auto;
+        padding: 24px 20px;
+        border-radius: 19px;
+    }
+
+    .contact-grid .card h3 {
+        margin-bottom: 20px;
+        font-size: 19px;
+    }
+
+    .contact-row {
+        padding: 13px 14px;
+    }
+
+    .contact-row a {
+        font-size: 14px;
+    }
+
+    .contact-grid .card:nth-child(2) .contact-row {
+        margin-bottom: 20px;
+    }
+
+    .cta {
+        padding: 48px 20px;
+    }
+
+    .cta p {
+        font-size: 14px;
+    }
+
+    .cta .btn-primary {
+        width: 100%;
+        max-width: 320px;
+        box-sizing: border-box;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-grid .card,
+    .contact-row,
+    .map-btn,
+    .cta .btn-primary {
+        transition: none;
+    }
+}
+
+
+.contact-grid .card:nth-child(3) .email-btn {
+    margin-top: 20px;
+}
+
+.contact-grid .card:nth-child(3) {
+    align-items: flex-start;
+}
+
+
+/* ========================================
+   CONTACT PAGE — FILL & BALANCE LAYOUT
+======================================== */
+
+/* Lebih rapat dan proporsional */
+.section:has(.contact-grid) {
+    padding: 65px 0 75px;
+}
+
+.contact-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 22px;
+}
+
+/* Kartu menjadi panel informasi */
+.contact-grid .card {
+    min-height: 350px;
+    padding: 30px 27px;
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(74, 47, 28, 0.055);
+}
+
+/* Heading kartu */
+.contact-grid .card h3 {
+    padding-bottom: 17px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f1e4d8;
+}
+
+/* Informasi lebih terisi */
+.contact-row {
+    padding: 15px 16px;
+    margin-bottom: 12px;
+    background: #fff9f3;
+    border-radius: 12px;
+}
+
+/* Jarak kartu alamat */
+.contact-grid .card:nth-child(2) .contact-row {
+    margin-bottom: 20px;
+}
+
+/* Tombol selalu berada di bawah */
+.contact-grid .card .map-btn,
+.contact-grid .card .email-btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* Email: tambahkan panel informasi visual */
+.contact-grid .card:nth-child(3) {
+    position: relative;
+    background:
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(242, 138, 59, 0.13),
+            transparent 48%
+        ),
+        #fff;
+}
+
+.contact-grid .card:nth-child(3)::after {
+    content: "KAMI SIAP MEMBANTU";
+    display: block;
+    margin-top: auto;
+    padding-top: 25px;
+    color: #bd6429;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+/* Tombol email */
+.contact-grid .card:nth-child(3) .email-btn {
+    margin-top: 18px;
+}
+
+/* Dekorasi kartu alamat */
+.contact-grid .card:nth-child(2) {
+    background:
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(242, 138, 59, 0.13),
+            transparent 45%
+        ),
+        #fff;
+}
+
+/* CTA lebih compact */
+.cta {
+    padding: 55px 24px 60px;
+}
+
+.cta h2 {
+    margin-bottom: 12px;
+}
+
+.cta p {
+    margin-bottom: 23px;
+}
+
+/* TABLET */
+@media (max-width: 950px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-grid .card {
+        min-height: 320px;
+    }
+
+    .contact-grid .card:nth-child(3) {
+        grid-column: 1 / -1;
+        min-height: 250px;
+    }
+}
+
+/* HP */
+@media (max-width: 620px) {
+    .section:has(.contact-grid) {
+        padding: 40px 0 50px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .contact-grid .card,
+    .contact-grid .card:nth-child(3) {
+        grid-column: auto;
+        min-height: 0;
+        padding: 23px 20px;
+    }
+
+    .contact-grid .card:nth-child(3)::after {
+        padding-top: 24px;
+    }
+
+    .cta {
+        padding: 42px 20px;
+    }
+}
+
+
+/* Perbaiki warna tombol Kirim Email */
+.contact-grid .email-btn,
+.contact-grid .email-btn:link,
+.contact-grid .email-btn:visited {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background: #f58a38 !important;
+    color: #ffffff !important;
+    border: 1px solid #f58a38;
+
+    text-decoration: none !important;
+    opacity: 1;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.contact-grid .email-btn:hover {
+    background: #df7024 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+.contact-grid .email-btn:active,
+.contact-grid .email-btn:focus {
+    background: #c95e19 !important;
+    color: #ffffff !important;
+    outline: 2px solid rgba(245, 138, 56, 0.35);
+    outline-offset: 3px;
+}
+
+
+
+/* =========================================
+   KURMA TRAVEL — PREMIUM PACKAGE PAGE
+========================================= */
+
+.package-section {
+    position: relative;
+    overflow: hidden;
+    padding: 85px 0 100px;
+    background:
+        radial-gradient(
+            circle at 0% 5%,
+            rgba(245, 139, 57, 0.12),
+            transparent 28%
+        ),
+        linear-gradient(180deg, #fffaf5 0%, #fff5eb 100%);
+}
+
+.package-section::before {
+    content: "";
+    position: absolute;
+    top: 150px;
+    right: -120px;
+    width: 320px;
+    height: 320px;
+    border: 1px solid rgba(226, 112, 42, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.package-section .container,
+.hajj-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Heading */
+
+.package-heading {
+    max-width: 680px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.section-tag {
+    display: inline-block;
+    margin-bottom: 13px;
+    padding: 8px 15px;
+    border: 1px solid rgba(227, 111, 40, 0.22);
+    border-radius: 30px;
+    background: #fff0e2;
+    color: #c65d20;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.package-heading h2 {
+    margin: 0 0 14px;
+    color: #30251e;
+    font-size: clamp(28px, 3.5vw, 42px);
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+}
+
+.package-heading p {
+    max-width: 520px;
+    margin: 0 auto;
+    color: #807064;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.heading-line {
+    width: 58px;
+    height: 4px;
+    margin: 23px auto 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #ffc17e, #e96d24);
+}
+
+/* Grid: 3 kolom di desktop, 2 kolom untuk tablet */
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 28px;
+}
+
+/* Kartu paket */
+
+.travel-card {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #f0dfd0;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 12px 32px rgba(86, 52, 28, 0.055);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.travel-card:hover {
+    transform: translateY(-8px);
+    border-color: #f5b17c;
+    box-shadow: 0 22px 42px rgba(118, 66, 30, 0.13);
+}
+
+/* Poster */
+
+.travel-poster {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 4.4;
+    background: #f5e6d8;
+}
+
+.travel-poster::after {
+    content: "";
+    position: absolute;
+    inset: 45% 0 0;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(41, 25, 14, 0.22)
+    );
+    pointer-events: none;
+}
+
+.travel-poster img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.55s ease;
+}
+
+.travel-card:hover .travel-poster img {
+    transform: scale(1.035);
+}
+
+/* Badge */
+
+.travel-badge {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    left: 15px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.94);
+    color: #bd5a20;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+}
+
+.ramadhan-badge {
+    background: #245c49;
+    color: #ffffff;
+    border-color: #245c49;
+}
+
+/* Konten */
+
+.travel-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 23px 22px 22px;
+}
+
+.travel-category {
+    margin-bottom: 8px;
+    color: #dc712f;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.travel-content h3 {
+    margin: 0 0 11px;
+    color: #33261f;
+    font-size: 19px;
+    line-height: 1.45;
+}
+
+.travel-description {
+    min-height: 66px;
+    margin: 0 0 17px;
+    color: #83766c;
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+.travel-info {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 14px 0;
+    border-top: 1px solid #f3e7dd;
+    border-bottom: 1px solid #f3e7dd;
+    color: #64564c;
+    font-size: 12px;
+}
+
+.travel-info span {
+    display: block;
+}
+
+/* Footer kartu */
+
+.travel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.travel-footer > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.travel-footer small {
+    color: #9a8a7c;
+    font-size: 10px;
+}
+
+.travel-footer strong {
+    color: #b9521e;
+    font-size: 17px;
+}
+
+.travel-button,
+.hajj-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 43px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f99a4a, #e66a25);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 7px 16px rgba(222, 104, 36, 0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.travel-button:hover,
+.hajj-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(222, 104, 36, 0.28);
+}
+
+.travel-button span,
+.hajj-button span {
+    font-size: 16px;
+}
+
+/* Penekanan visual pada paket Ramadhan */
+
+.travel-card.featured {
+    border-color: #e9bd93;
+    box-shadow: 0 16px 35px rgba(128, 78, 39, 0.10);
+}
+
+.travel-card.featured::before {
+    content: "";
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 18%;
+    right: 18%;
+    height: 4px;
+    border-radius: 0 0 8px 8px;
+    background: linear-gradient(90deg, #f8c58b, #e76b26);
+}
+
+/* Haji */
+
+.hajj-section {
+    position: relative;
+    padding: 10px 0 90px;
+    background: #fff5eb;
+}
+
+.hajj-panel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    overflow: hidden;
+    padding: 38px 42px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 25px;
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(255, 255, 255, 0.19),
+            transparent 34%
+        ),
+        linear-gradient(120deg, #bd5b25, #f28b3e);
+    color: #ffffff;
+    box-shadow: 0 18px 35px rgba(160, 81, 33, 0.17);
+}
+
+.hajj-symbol {
+    display: flex;
+    flex: 0 0 76px;
+    width: 76px;
+    height: 76px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.13);
+    font-size: 32px;
+}
+
+.hajj-copy {
+    flex: 1;
+}
+
+.hajj-copy .section-tag {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.13);
+    color: #ffffff;
+}
+
+.hajj-copy h2 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 27px;
+}
+
+.hajj-copy p {
+    max-width: 610px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.hajj-button {
+    flex-shrink: 0;
+    border: 1px solid #ffffff;
+    background: #ffffff;
+    color: #bd5b25;
+    box-shadow: none;
+}
+
+/* Tablet */
+
+@media (max-width: 1050px) {
+    .package-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .travel-content {
+        padding: 20px;
+    }
+
+    .hajj-panel {
+        padding: 30px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 620px) {
+    .package-section {
+        padding: 55px 0 65px;
+    }
+
+    .package-heading {
+        margin-bottom: 32px;
+        padding: 0 8px;
+    }
+
+    .package-heading h2 {
+        font-size: 29px;
+    }
+
+    .package-heading p {
+        font-size: 13px;
+    }
+
+    .package-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .travel-card {
+        border-radius: 19px;
+    }
+
+    .travel-poster {
+        aspect-ratio: 4 / 3.6;
+    }
+
+    .travel-content {
+        padding: 21px;
+    }
+
+    .travel-content h3 {
+        font-size: 19px;
+    }
+
+    .travel-description {
+        min-height: 0;
+    }
+
+    .travel-footer {
+        align-items: stretch;
+    }
+
+    .travel-button {
+        flex: 1;
+    }
+
+    .hajj-section {
+        padding: 0 0 55px;
+    }
+
+    .hajj-panel {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 26px 23px;
+        border-radius: 20px;
+    }
+
+    .hajj-symbol {
+        width: 60px;
+        height: 60px;
+        flex-basis: 60px;
+        border-radius: 18px;
+        font-size: 27px;
+    }
+
+    .hajj-copy h2 {
+        font-size: 24px;
+    }
+
+    .hajj-button {
+        width: 100%;
+    }
+}
+
+
+/* ===== AKSI PAKET UMRAH ===== */
+.package-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    width: 100%;
+    max-width: 175px;
+}
+
+.package-actions button {
+    width: 100%;
+    min-height: 40px;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.travel-price {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.detail-btn {
+    padding: 11px 14px;
+    border: 1px solid #d97706;
+    border-radius: 10px;
+    background: #fff;
+    color: #b85d08;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .25s ease;
+}
+
+.detail-btn:hover {
+    background: #d97706;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ===== MODAL POSTER ===== */
+.package-detail-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(15, 20, 17, .84);
+    backdrop-filter: blur(7px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .25s ease, visibility .25s ease;
+}
+
+.package-detail-modal.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.package-detail-box {
+    position: relative;
+    width: min(100%, 620px);
+    max-height: 94vh;
+    overflow-y: auto;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, .7);
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, .4);
+    transform: translateY(14px) scale(.98);
+    transition: transform .25s ease;
+}
+
+.package-detail-modal.show .package-detail-box {
+    transform: translateY(0) scale(1);
+}
+
+.package-detail-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(94vh - 95px);
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.close-detail {
+    position: sticky;
+    top: 0;
+    float: right;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin-bottom: -38px;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .2);
+    font-size: 27px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.close-detail:hover {
+    background: #d97706;
+    color: #fff;
+}
+
+.poster-open-btn {
+    display: block;
+    width: fit-content;
+    margin: 14px auto 0;
+    padding: 11px 20px;
+    border-radius: 10px;
+    background: #d97706;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    transition: background .2s ease;
+}
+
+.poster-open-btn {
+    transition: background .2s ease, transform .2s ease;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .package-actions {
+        max-width: none;
+    }
+
+    .travel-footer {
+        gap: 14px;
+        align-items: stretch;
+    }
+
+    .package-detail-modal {
+        padding: 10px;
+    }
+
+    .package-detail-box {
+        padding: 11px;
+        border-radius: 15px;
+    }
+
+    .package-detail-box img {
+        max-height: calc(94vh - 85px);
+    }
+}
+
+
+/* MODAL DETAIL POSTER */
+.package-detail-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(15, 20, 17, 0.84);
+    backdrop-filter: blur(7px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.package-detail-modal.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.package-detail-box {
+    position: relative;
+    width: min(100%, 620px);
+    max-height: 94vh;
+    overflow-y: auto;
+    padding: 16px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+}
+
+.package-detail-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(94vh - 95px);
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+    .package-detail-modal {
+        padding: 10px;
+    }
+
+    .package-detail-box {
+        padding: 11px;
+        border-radius: 15px;
+    }
+
+    .package-detail-box img {
+        max-height: calc(94vh - 85px);
+    }
+}
+
+
+.package-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    width: 100%;
+    max-width: 175px;
+}
+
+.package-actions button,
+.package-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 42px;
+    padding: 11px 14px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.detail-btn {
+    border: 1px solid #d97706;
+    background: #fff;
+    color: #b85d08;
+    transition: background 0.25s ease, color 0.25s ease,
+                transform 0.25s ease;
+}
+
+.detail-btn:hover {
+    background: #d97706;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .package-actions {
+        max-width: none;
+    }
+}
+
+
+/* ===== PERBAIKAN TAMPILAN TOMBOL PAKET ===== */
+
+.travel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+
+.travel-price {
+    display: flex;
+    flex: 1 1 120px;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.travel-price small {
+    color: #9a8a7c;
+    font-size: 11px;
+}
+
+.travel-price strong {
+    color: #bd4f16;
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.package-actions {
+    display: flex;
+    flex: 0 1 165px;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 165px;
+    min-width: 0;
+}
+
+/* Samakan bentuk tombol */
+.package-actions button,
+.package-actions a {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 44px;
+    margin: 0;
+    padding: 11px 12px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+/* Tombol lihat detail poster */
+.package-actions .detail-btn {
+    border: 1px solid #e7b98e;
+    background: #fff8f1;
+    color: #b85d20;
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.package-actions .detail-btn:hover {
+    border-color: #d97732;
+    background: #fff0e2;
+    color: #984414;
+    transform: translateY(-2px);
+}
+
+/* Tombol tanya paket */
+.package-actions .travel-button {
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, #ff9847, #eb6825);
+    color: #fff;
+    box-shadow: 0 7px 16px rgba(222, 104, 36, 0.2);
+}
+
+.package-actions .travel-button:hover {
+    background: linear-gradient(135deg, #f28a35, #d95618);
+    box-shadow: 0 10px 20px rgba(222, 104, 36, 0.26);
+    transform: translateY(-2px);
+}
+
+/* Tampilan HP */
+@media (max-width: 620px) {
+    .travel-footer {
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .travel-price {
+        flex-basis: 100%;
+    }
+
+    .package-actions {
+        flex: 1 1 100%;
+        max-width: none;
+    }
+
+    .package-actions button,
+    .package-actions a {
+        min-height: 46px;
+    }
+}
+
+
+/* ===== TOMBOL AKSI PAKET ===== */
+
+.package-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    width: 100%;
+    max-width: 175px;
+}
+
+.package-actions button {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 43px;
+    padding: 11px 12px;
+    border-radius: 11px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: background .25s ease, color .25s ease,
+                transform .25s ease, box-shadow .25s ease;
+}
+
+.package-actions .detail-btn {
+    border: 1px solid #edc6a7;
+    background: #fff7ef;
+    color: #b95720;
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.package-actions .detail-btn:hover {
+    border-color: #e9782e;
+    background: #e9782e;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.package-actions .travel-button {
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, #f99a4a, #e66a25);
+    color: #fff;
+    box-shadow: 0 7px 16px rgba(222, 104, 36, .18);
+}
+
+.package-actions .travel-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(222, 104, 36, .28);
+}
+
+.package-actions button span {
+    font-size: 15px;
+}
+
+/* ===== MODAL POSTER ===== */
+
+.package-detail-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(20, 16, 13, .86);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .25s ease, visibility .25s ease;
+}
+
+.package-detail-modal.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.package-detail-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 650px);
+    max-height: 94vh;
+    padding: 12px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, .35);
+}
+
+.package-detail-box img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(94vh - 24px);
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.close-detail {
+    position: absolute;
+    z-index: 2;
+    top: -13px;
+    right: -13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #e96d24;
+    color: #fff;
+    font-size: 27px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .25);
+}
+
+.close-detail:hover {
+    background: #bd5018;
+}
+
+@media (max-width: 620px) {
+    .package-actions {
+        max-width: none;
+    }
+
+    .travel-footer {
+        align-items: stretch;
+    }
+
+    .travel-price {
+        flex: 1 1 100%;
+    }
+
+    .package-detail-modal {
+        padding: 12px;
+    }
+
+    .package-detail-box {
+        max-height: 92vh;
+        padding: 7px;
+    }
+
+    .package-detail-box img {
+        max-height: calc(92vh - 14px);
+    }
+
+    .close-detail {
+        top: -10px;
+        right: -8px;
+        width: 35px;
+        height: 35px;
+    }
+}
+

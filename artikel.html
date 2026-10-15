@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artikel & Informasi</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="static/css/style.css">
+
+<style>
+/* =========================================
+   ARTIKEL & INFORMASI - KURMA TRAVEL
+========================================= */
+
+:root {
+    --artikel-orange: #ed6b23;
+    --artikel-orange-dark: #cf5015;
+    --artikel-cream: #fff7ef;
+    --artikel-bg: #fffaf6;
+    --artikel-text: #39271f;
+    --artikel-muted: #796b62;
+    --artikel-border: #f1e4d8;
+    --artikel-white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--artikel-bg);
+    color: var(--artikel-text);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.artikel-hero {
+    min-height: 320px;
+    height: 38vh;
+    max-height: 430px;
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    overflow: hidden;
+    text-align: center;
+    color: var(--artikel-white);
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(105, 45, 15, 0.76),
+            rgba(237, 107, 35, 0.78)
+        ),
+        url("static/images/hero.jpg") center 55% / cover no-repeat;
+}
+
+/* Ornamen lingkaran */
+.artikel-hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 320px;
+    height: 320px;
+    right: -90px;
+    bottom: -190px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 35px rgba(255, 255, 255, 0.06),
+        0 0 0 70px rgba(255, 255, 255, 0.04);
+}
+
+.artikel-hero h1 {
+    max-width: 850px;
+    margin: 0;
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: artikelFadeIn 0.7s ease both;
+}
+
+.artikel-hero h1::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    margin: 22px auto 0;
+    background: #ffd6a5;
+    border-radius: 10px;
+}
+
+/* =========================================
+   CONTENT WRAPPER
+========================================= */
+
+.artikel-wrapper {
+    width: min(100% - 40px, 960px);
+    margin: 0 auto;
+    padding: 54px 0 65px;
+}
+
+/* =========================================
+   KARTU DAFTAR
+========================================= */
+
+.artikel-list {
+    position: relative;
+    padding: 30px;
+    margin-bottom: 28px;
+    overflow: hidden;
+
+    background: var(--artikel-white);
+    border: 1px solid var(--artikel-border);
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 30px rgba(82, 48, 25, 0.045),
+        0 2px 7px rgba(82, 48, 25, 0.025);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.artikel-list::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--artikel-orange),
+        #ffbd78
+    );
+}
+
+.artikel-list:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(82, 48, 25, 0.085);
+}
+
+/* Judul daftar */
+
+.artikel-list h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 20px;
+    color: var(--artikel-text);
+    font-size: 23px;
+    line-height: 1.4;
+    font-weight: 750;
+}
+
+.artikel-list h2::before {
+    content: "";
+    display: inline-block;
+    flex-shrink: 0;
+    width: 5px;
+    height: 27px;
+    border-radius: 10px;
+    background: var(--artikel-orange);
+}
+
+/* Tautan artikel dan informasi */
+
+.artikel-list a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 15px 16px;
+    margin-top: 7px;
+
+    color: #59483d;
+    background: #fffdfb;
+    border: 1px solid transparent;
+    border-radius: 11px;
+
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* Panah di ujung tautan */
+
+.artikel-list a::after {
+    content: "↗";
+    flex-shrink: 0;
+    color: var(--artikel-orange);
+    font-size: 19px;
+    font-weight: 700;
+    transition: transform 0.25s ease;
+}
+
+.artikel-list a:hover {
+    color: var(--artikel-orange-dark);
+    background: var(--artikel-cream);
+    border-color: #f5d5bc;
+    transform: translateX(4px);
+}
+
+.artikel-list a:hover::after {
+    transform: translate(2px, -2px);
+}
+
+/* Hilangkan garis bawah bawaan karena memakai kartu */
+
+.artikel-list a:focus-visible,
+.back-home a:focus-visible {
+    outline: 3px solid rgba(237, 107, 35, 0.4);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   KARTU ARTIKEL JIKA DIGUNAKAN
+========================================= */
+
+.artikel-item {
+    padding: 30px;
+    margin-bottom: 28px;
+    background: var(--artikel-white);
+    border: 1px solid var(--artikel-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(82, 48, 25, 0.045);
+}
+
+.artikel-item h2 {
+    margin: 0 0 16px;
+    color: var(--artikel-orange-dark);
+    font-size: 26px;
+    line-height: 1.4;
+}
+
+.artikel-item p {
+    margin: 0 0 16px;
+    color: #51463f;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* =========================================
+   TOMBOL KEMBALI KE HOME
+========================================= */
+
+.back-home {
+    display: flex;
+    justify-content: center;
+    margin-top: 42px;
+}
+
+.back-home a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 50px;
+    padding: 13px 27px;
+
+    color: var(--artikel-white);
+    background: linear-gradient(
+        135deg,
+        #f58a3d,
+        var(--artikel-orange)
+    );
+
+    border: 1px solid transparent;
+    border-radius: 50px;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+
+    box-shadow: 0 7px 18px rgba(237, 107, 35, 0.2);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.back-home a:hover {
+    background: linear-gradient(
+        135deg,
+        var(--artikel-orange),
+        var(--artikel-orange-dark)
+    );
+    transform: translateY(-3px);
+    box-shadow: 0 11px 25px rgba(237, 107, 35, 0.28);
+}
+
+/* =========================================
+   ANIMASI
+========================================= */
+
+@keyframes artikelFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+    .artikel-hero {
+        min-height: 260px;
+        height: 32vh;
+        padding: 32px 20px;
+    }
+
+    .artikel-wrapper {
+        width: min(100% - 32px, 600px);
+        padding: 36px 0 45px;
+    }
+
+    .artikel-list,
+    .artikel-item {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+
+    .artikel-list h2 {
+        font-size: 21px;
+    }
+
+    .artikel-list a {
+        padding: 13px 12px;
+        font-size: 14px;
+    }
+
+    .artikel-item h2 {
+        font-size: 23px;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+    .artikel-hero {
+        min-height: 220px;
+        height: auto;
+        padding: 45px 18px;
+    }
+
+    .artikel-hero h1 {
+        font-size: 28px;
+        letter-spacing: -0.5px;
+    }
+
+    .artikel-hero h1::after {
+        width: 55px;
+        height: 3px;
+        margin-top: 17px;
+    }
+
+    .artikel-wrapper {
+        width: calc(100% - 28px);
+        padding: 27px 0 38px;
+    }
+
+    .artikel-list,
+    .artikel-item {
+        padding: 22px 16px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+    }
+
+    .artikel-list h2 {
+        gap: 10px;
+        margin-bottom: 15px;
+        font-size: 19px;
+    }
+
+    .artikel-list h2::before {
+        height: 23px;
+    }
+
+    .artikel-list a {
+        gap: 10px;
+        padding: 12px 10px;
+        margin-top: 6px;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .artikel-list a::after {
+        font-size: 17px;
+    }
+
+    .artikel-item h2 {
+        font-size: 21px;
+    }
+
+    .artikel-item p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .back-home {
+        margin-top: 30px;
+    }
+
+    .back-home a {
+        min-height: 46px;
+        padding: 12px 22px;
+        font-size: 13px;
+    }
+}
+
+/* Hormati pengaturan pengurangan animasi */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<!-- HERO -->
+<section class="artikel-hero">
+  <h1>Artikel & Informasi Kurma Travel
+  </h1>
+</section>
+
+<!-- CONTENT -->
+<div class="artikel-wrapper">
+
+<!-- DAFTAR -->
+<div class="artikel-list">
+  <h2>Daftar Artikel</h2>
+    <a href="artikel-manfaat.html">Manfaat Umrah Bagi Kehidupan</a>
+    <a href="artikel-tips.html">Tips Persiapan Umrah</a>
+    <a href="artikel-haji.html">Keutamaan Haji</a>
+</div>
+
+<!-- DAFTAR INFO-->
+<div class="artikel-list">
+  <h2>Daftar Informasi</h2>
+    <a href="tentang.html">Tentang Kurma Travel</a>
+    <a href="syarat.html">Syarat & Ketentuan Umrah</a>
+    <a href="keunggulan.html">Keunggulan Kurma Travel</a>
+    <a href="perlengkapan.html">Perlengkapan Umrah & Haji Kurma Travel</a>
+</div>
+
+<!-- BACK -->
+<div class="back-home">
+  <a href="index.html">⬅ Kembali ke Home</a>
+</div>
+
+</div>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", ()=>{
+  mobileMenu.classList.toggle("show");
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tentang Kurma Travel</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="static/css/style.css">
+
+<style>
+/* ==========================================
+   KURMA TRAVEL - TENTANG KAMI
+   Modern & Responsive Design
+========================================== */
+
+:root {
+  --primary: #ed7028;
+  --primary-dark: #c95116;
+  --primary-light: #fff1e6;
+  --gold: #f3bd57;
+  --text: #343434;
+  --text-muted: #666;
+  --background: #fffaf5;
+  --white: #fff;
+  --border: #f1dfd0;
+  --shadow: 0 12px 35px rgba(92, 54, 27, 0.10);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.8;
+}
+
+/* ========== HERO ========== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 320px;
+  height: 40vh;
+  max-height: 460px;
+  padding: 40px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background:
+    url("static/images/hero.jpg") center / cover no-repeat,
+    #85421f;
+
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+    135deg,
+    rgba(203, 82, 20, 0.88),
+    rgba(43, 29, 22, 0.82)
+  );
+}
+
+/* Lingkaran dekoratif */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::before {
+  width: 300px;
+  height: 300px;
+  top: -150px;
+  right: -70px;
+}
+
+.hero::after {
+  width: 230px;
+  height: 230px;
+  bottom: -130px;
+  left: -50px;
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0;
+  padding: 0 15px;
+
+  color: var(--white);
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.4px;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+  animation: fadeInUp 0.8s ease both;
+}
+
+.hero h1::after {
+  content: "";
+  display: block;
+  width: 75px;
+  height: 5px;
+  margin: 20px auto 0;
+  border-radius: 10px;
+  background: var(--gold);
+}
+
+/* ========== CONTENT CARD ========== */
+
+.content {
+  position: relative;
+  z-index: 2;
+
+  width: calc(100% - 40px);
+  max-width: 1000px;
+  margin: -45px auto 60px;
+  padding: 45px 48px;
+
+  background: var(--white);
+  border: 1px solid rgba(237, 112, 40, 0.10);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+/* ========== PARAGRAPH ========== */
+
+.content p {
+  margin: 0 0 22px;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.95;
+  text-align: justify;
+}
+
+.content p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* ========== SECTION HEADING ========== */
+
+.content h2 {
+  position: relative;
+  margin: 38px 0 18px;
+  padding: 0 0 12px 17px;
+
+  color: var(--primary-dark);
+  font-size: 23px;
+  font-weight: 750;
+  line-height: 1.45;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.content h2:first-child {
+  margin-top: 0;
+}
+
+.content h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+
+  width: 5px;
+  height: 27px;
+  border-radius: 5px;
+
+  background: linear-gradient(
+    to bottom,
+    var(--primary),
+    var(--gold)
+  );
+}
+
+/* ========== LISTS: MISI & KEUNGGULAN ========== */
+
+.content ul {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+}
+
+.content li {
+  position: relative;
+  margin-bottom: 10px;
+  padding: 12px 16px 12px 44px;
+
+  color: #555;
+  font-size: 15.5px;
+  line-height: 1.75;
+
+  background: #fffaf6;
+  border: 1px solid #f5e9df;
+  border-radius: 10px;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.content li::before {
+  content: "✓";
+  position: absolute;
+  left: 14px;
+  top: 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+
+  color: #fff;
+  background: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.content li:hover {
+  background: var(--primary-light);
+  border-color: #f1c6a6;
+  box-shadow: 0 5px 14px rgba(160, 86, 39, 0.07);
+  transform: translateX(4px);
+}
+
+/* ========== PENEGASAN PARAGRAF TERAKHIR ========== */
+
+.content > p:last-of-type {
+  margin-top: 32px;
+  padding: 22px 24px;
+
+  color: #75421f;
+  background: linear-gradient(
+    135deg,
+    #fff1e3,
+    #fffaf2
+  );
+
+  border-left: 5px solid var(--primary);
+  border-radius: 5px 14px 14px 5px;
+  font-style: italic;
+}
+
+/* ========== BACK BUTTON ========== */
+
+.back {
+  margin-top: 38px;
+  text-align: center;
+}
+
+.back a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 14px 30px;
+  border-radius: 50px;
+  border: 2px solid transparent;
+
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-dark)
+  );
+
+  box-shadow: 0 7px 18px rgba(201, 78, 18, 0.23);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.back a:hover {
+  background: linear-gradient(
+    135deg,
+    #fa853a,
+    #b8420d
+  );
+  box-shadow: 0 11px 24px rgba(201, 78, 18, 0.30);
+  transform: translateY(-3px);
+}
+
+.back a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* ========== ANIMATION ========== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== TABLET ========== */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 280px;
+    height: 36vh;
+  }
+
+  .content {
+    width: calc(100% - 32px);
+    margin-top: -35px;
+    padding: 35px 28px;
+    border-radius: 18px;
+  }
+
+  .content h2 {
+    font-size: 21px;
+  }
+
+  .content p {
+    font-size: 15.5px;
+  }
+}
+
+/* ========== MOBILE ========== */
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 230px;
+    height: 32vh;
+    padding: 25px 12px;
+  }
+
+  .hero h1 {
+    font-size: 27px;
+    padding: 0 5px;
+  }
+
+  .hero h1::after {
+    width: 60px;
+    height: 4px;
+    margin-top: 16px;
+  }
+
+  .content {
+    width: calc(100% - 24px);
+    margin-top: -25px;
+    margin-bottom: 35px;
+    padding: 28px 17px;
+    border-radius: 15px;
+  }
+
+  .content h2 {
+    margin-top: 29px;
+    margin-bottom: 14px;
+    padding-left: 14px;
+    font-size: 19px;
+  }
+
+  .content h2::before {
+    width: 4px;
+    height: 23px;
+  }
+
+  .content p {
+    font-size: 14.5px;
+    line-height: 1.85;
+    text-align: left;
+  }
+
+  .content li {
+    padding: 11px 11px 11px 37px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+  .content li::before {
+    left: 11px;
+    top: 13px;
+    width: 17px;
+    height: 17px;
+    font-size: 11px;
+  }
+
+  .content > p:last-of-type {
+    margin-top: 25px;
+    padding: 17px;
+  }
+
+  .back {
+    margin-top: 28px;
+  }
+
+  .back a {
+    width: 100%;
+    max-width: 290px;
+    padding: 13px 18px;
+    font-size: 14px;
+  }
+}
+
+/* ========== REDUCE MOTION ========== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <h1>Tentang Kurma Travel</h1>
+</section>
+
+<!-- CONTENT -->
+<div class="content">
+
+<p>
+Kurma Travel adalah biro perjalanan umrah dan haji yang berkomitmen untuk memberikan pelayanan terbaik, amanah, dan profesional kepada seluruh jamaah. 
+Kami hadir sebagai mitra terpercaya bagi umat muslim yang ingin menunaikan ibadah ke Tanah Suci dengan nyaman, tenang, dan sesuai tuntunan syariat.
+</p>
+
+<p>
+Dengan pengalaman bertahun-tahun dalam mengelola perjalanan umrah dan haji, Kurma Travel telah melayani ribuan jamaah dengan berbagai latar belakang.
+Kami siap mendampingi setiap langkah perjalanan ibadah Anda, mulai dari persiapan hingga kembali ke tanah air dengan pengalaman yang penuh berkah.
+Kami juga siap menerima paket umrah dan haji khusus untuk keluarga, kelompok, maupun individu dengan berbagai pilihan fasilitas dan harga yang kompetitif.
+</p>
+
+<h2>Visi Kami</h2>
+<p>
+  Menjadi perusahaan travel umrah dan haji terpercaya yang mengutamakan pelayanan berkualitas, amanah, serta berorientasi pada kepuasan jamaah.
+  Kami siap melayani umat menuju baitullah dengan membentuk karakter umat yang tunduk dan patuh
+  kepada Allah SWT, sehingga menghasilkan kehidupan yag berakhlak mulia, beriman, dan bertakwa kepada Allah SWT.
+  Kami berkomitmen untuk memberikan pengalaman ibadah yang
+</p>
+
+<h2>Misi Kami</h2>
+<p>
+<ul>
+  <li>Menjembatani umat menuju baitullah dalam menggapai ridho Allah SWT melalui ibadah umroh & haji.</li>
+  <li>Menyelenggarakan perjalanan ibadah umrah dan haji sesuai syariat Islam.</li>
+  <li>Memberikan pelayanan yang profesional, ramah, dan transparan.</li>
+  <li>Menyediakan fasilitas terbaik demi kenyamanan jamaah.</li>
+  <li>Mendampingi jamaah dengan pembimbing yang berpengalaman.</li>
+</ul>
+</p>
+
+<h2>Komitmen Kami</h2>
+<p>
+</ul>
+Kurma Travel selalu mengutamakan kejujuran, tanggung jawab, dan pelayanan sepenuh hati. Kami memastikan setiap jamaah mendapatkan bimbingan manasik, 
+akomodasi yang layak, transportasi yang nyaman, serta pendampingan selama perjalanan ibadah.
+</ul>
+</p>
+
+<h2>Kenapa Memilih Kurma Travel?</h2>
+<p>
+<ul>
+  <li>Travel resmi dan berizin.</li>
+  <li>No.Izin: Izin Umroh (PPIU) No. U 429 Tahun 2021</li>
+  <li>No.Izin: Izin Haji (PIHK) No. 91204037426320002</li>
+  <li>Pembimbing berpengalaman & amanah.</li>
+  <li>Hotel nyaman dekat Masjid.</li>
+  <li>Program manasik terstruktur sesuai sunnah.</li>
+  <li>Harga transparan & kompetitif.</li>
+  <li>Jaminan keberangkatan.</li>
+</ul>
+</p>
+
+<p>
+Dengan Kurma Travel, insyaAllah perjalanan ibadah Anda akan menjadi pengalaman spiritual yang berkesan dan penuh keberkahan.
+</p>
+
+<!-- BACK -->
+<div class="back">
+  <a href="artikel.html">⬅ Kembali ke Artikel</a>
+</div>
+
+</div>
+
+</body>
+</html>

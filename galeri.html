@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri - Kurma Travel</title>
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <style>
+
+        /* GRID GALERI */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-grid img {
+            display: block;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, .15);
+        }
+
+        /* LIGHTBOX */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, .88);
+        }
+
+        .lightbox img {
+            display: block;
+            max-width: 95%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 22px;
+            border: none;
+            background: transparent;
+            color: #fff;
+            font-size: 38px;
+            cursor: pointer;
+        }
+/* =========================================
+   WHATSAPP MODAL - SAMA DENGAN INDEX
+========================================= */
+
+        .wa-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: rgba(14, 29, 21, 0.67);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .wa-modal.show {
+            display: flex;
+        }
+
+        .wa-box {
+            width: min(410px, 100%);
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            background: var(--bg);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+            animation: modalEnter 0.25s ease both;
+        }
+
+        .wa-box h3 {
+            margin-top: 0;
+            margin-bottom: 23px;
+            color: var(--green);
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .wa-box a {
+            display: block;
+            margin-bottom: 11px;
+            padding: 13px 16px;
+            border: 1px solid #dce9de;
+            border-radius: 9px;
+            background: #f2f8f2;
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .wa-box a:hover {
+            border-color: #25a366;
+            background: #25a366;
+            color: var(--white);
+        }
+
+        .wa-box button {
+            width: 100%;
+            margin-top: 8px;
+            padding: 12px;
+            border: none;
+            border-radius: 9px;
+            background: #ecebe5;
+            color: #47534b;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .wa-box button:hover {
+            background: #deddd5;
+        }
+
+        /* ANIMASI MODAL */
+        @keyframes modalEnter {
+            from {
+                opacity: 0;
+                transform: translateY(12px) scale(0.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* =========================================
+          FLOATING WHATSAPP - SAMA DENGAN INDEX
+        ========================================= */
+
+        .wa-float {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            z-index: 2000;
+            width: 57px;
+            height: 57px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            background: #20b965;
+            box-shadow: 0 7px 25px rgba(32, 185, 101, 0.32);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px) scale(0.9);
+            transition:
+                opacity 0.3s ease,
+                visibility 0.3s ease,
+                transform 0.3s ease,
+                background 0.25s ease;
+        }
+
+        .wa-float.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .wa-float:hover {
+            background: #159c51;
+            transform: translateY(-4px) scale(1.04);
+        }
+
+        .wa-float::before {
+            content: "Chat Kami";
+            position: absolute;
+            right: 68px;
+            padding: 7px 12px;
+            border-radius: 7px;
+            background: var(--green-dark);
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(5px);
+            transition: 0.2s ease;
+        }
+
+        .wa-float:hover::before {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        /* RESPONSIVE HP */
+        @media (max-width: 480px) {
+            .wa-box {
+                width: 100%;
+                max-width: 410px;
+                padding: 25px 20px;
+            }
+
+            .wa-box h3 {
+                font-size: 23px;
+            }
+
+            .wa-float {
+                right: 16px;
+                bottom: 16px;
+                width: 52px;
+                height: 52px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-flex">
+
+            <div class="hamburger" id="hamburger">
+                <span>☰</span>
+                <span class="menu-text">MENU</span>
+            </div>
+
+            <div class="logo">
+                <img src="static/images/logo.png" alt="Logo Kurma Travel">
+                <span>KURMA TRAVEL</span>
+            </div>
+
+            <nav id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="paket.html">Paket Umroh &amp; Haji</a>
+                <a href="galeri.html" class="active">Galeri</a>
+                <a href="staf.html">Staf</a>
+                <a href="kontak.html">Kontak</a>
+            </nav>
+
+            <a href="#" class="btn-wa"
+               onclick="openWA('Halo Kurma Travel, saya mau konsultasi paket umrah/haji yang tersedia'); return false;">
+                Chat WhatsApp
+            </a>
+
+        </div>
+    </header>
+
+    <!-- MODAL PILIH ADMIN WHATSAPP -->
+    <div id="waModal" class="wa-modal"
+         onclick="if (event.target === this) closeWA();">
+
+        <div class="wa-box">
+            <h3>Pilih Admin WhatsApp</h3>
+
+            <a id="wa1" href="#" target="_blank" rel="noopener noreferrer">
+                Chat WA 1
+            </a>
+
+            <a id="wa2" href="#" target="_blank" rel="noopener noreferrer">
+                Chat WA 2
+            </a>
+
+            <a id="wa3" href="#" target="_blank" rel="noopener noreferrer">
+                Chat WA 3
+            </a>
+
+            <button type="button" onclick="closeWA()">Tutup</button>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <section class="hero"
+        style="background-image:url('static/images/hero.jpg'); height:40vh;">
+
+        <div class="overlay"></div>
+
+        <div class="container hero-content">
+            <h1>Galeri Dokumentasi</h1>
+            <p>Dokumentasi perjalanan jamaah Kurma Travel</p>
+        </div>
+    </section>
+
+    <!-- GALERI -->
+    <section class="section">
+        <div class="container">
+            <div class="gallery-grid" id="gallery"></div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX FOTO -->
+    <div id="lightbox" class="lightbox"
+         onclick="if (event.target === this) closeLightbox();">
+
+        <button type="button" class="lightbox-close"
+                onclick="closeLightbox()" aria-label="Tutup foto">
+            &times;
+        </button>
+
+        <img id="lightbox-img" src="" alt="Foto dokumentasi Kurma Travel">
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Kurma Travel
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+        const WA1 = "6281280803429";
+        const WA2 = "6283875613645";
+        const WA3 = "6287776042572";
+
+        function openWA(message) {
+            const modal = document.getElementById("waModal");
+
+            document.getElementById("wa1").href =
+                "https://wa.me/" + WA1 + "?text=" + encodeURIComponent(message);
+
+            document.getElementById("wa2").href =
+                "https://wa.me/" + WA2 + "?text=" + encodeURIComponent(message);
+
+            document.getElementById("wa3").href =
+                "https://wa.me/" + WA3 + "?text=" + encodeURIComponent(message);
+
+            modal.classList.add("show");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeWA() {
+            document.getElementById("waModal").classList.remove("show");
+            document.body.style.overflow = "";
+        }
+
+        document.getElementById("waModal").addEventListener("click", function(event) {
+            if (event.target === this) {
+                closeWA();
+            }
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                closeWA();
+            }
+        });
+
+
+        // HAMBURGER NAVBAR
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("navMenu");
+
+        hamburger.addEventListener("click", function() {
+            navMenu.classList.toggle("show");
+        });
+
+        // LIGHTBOX
+        function openLightbox(src) {
+            const lightbox = document.getElementById("lightbox");
+            document.getElementById("lightbox-img").src = src;
+            lightbox.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById("lightbox");
+            if (lightbox) {
+                lightbox.style.display = "none";
+                document.getElementById("lightbox-img").src = "";
+            }
+
+            if (!document.getElementById("waModal").classList.contains("show")) {
+                document.body.style.overflow = "";
+            }
+        }
+
+        // GENERATE FOTO GALERI
+        const gallery = document.getElementById("gallery");
+        const totalImages = 224;
+
+        for (let i = 1; i <= totalImages; i++) {
+            const img = document.createElement("img");
+
+            img.src = `static/images/gallery/gallery${i}.jpg`;
+            img.alt = `Dokumentasi perjalanan Kurma Travel ${i}`;
+            img.loading = "lazy";
+            img.decoding = "async";
+
+            img.addEventListener("click", function() {
+                if (img.complete && img.naturalWidth > 0) {
+                    openLightbox(img.src);
+                }
+            });
+
+            // Sembunyikan gambar yang tidak ditemukan
+            img.addEventListener("error", function() {
+                img.remove();
+            });
+
+            gallery.appendChild(img);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak - Kurma Travel</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<!-- CSS -->
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+<div class="container nav-flex">
+
+<div class="hamburger" id="hamburger">☰</button>
+  <span class="menu-text">MENU</span>
+</div>
+
+<div class="logo">
+<img src="static/images/logo.png">
+<span>KURMA TRAVEL</span>
+</div>
+
+    <nav id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="paket.html">Paket Umroh & Haji</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="staf.html">Staf</a>
+      <a href="kontak.html" class="active">Kontak</a>
+    </nav>
+
+    <a class="btn-wa" onclick="openWA('Halo Kurma Travel, saya mau konsultasi')">
+      Chat WhatsApp
+    </a>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero"
+style="background-image:url('static/images/hero.jpg'); height:40vh;">
+
+  <div class="overlay"></div>
+
+  <div class="container hero-content">
+    <h1>Hubungi Kami</h1>
+    <p>Tim Kurma Travel siap membantu Anda</p>
+  </div>
+
+</section>
+
+<!-- ================= KONTAK ================= -->
+
+<section class="section">
+  <div class="container">
+
+    <div class="grid-3 contact-grid">
+
+      <!-- WHATSAPP -->
+      <div class="card">
+        <h3>📱 WhatsApp</h3>
+
+        <div class="contact-row">
+          <a href="https://wa.me/6281280803429" target="_blank">
+            0812-8080-3429
+          </a>
+        </div>
+
+        <div class="contact-row">
+          <a href="https://wa.me/6283875613645" target="_blank">
+            0838-7561-3645
+          </a>
+        </div>
+
+        <div class="contact-row">
+          <a href="https://wa.me/6287776042572" target="_blank">
+            0877-7604-2572
+          </a>
+        </div>
+      </div>
+
+      <!-- ALAMAT -->
+      <div class="card">
+        <h3>📍 Alamat Kantor Pusat</h3>
+
+        <div class="contact-row">
+          <a href="https://maps.app.goo.gl/b5P77TBnoL3d3yjWA" target="_blank">
+            Ruko Plaza Kautsar, Jl. Kelapa Dua Raya No.6, Klp. Dua, Kecamatan Kelapa Dua, Kabupaten Tangerang, Banten 15810
+          </a>
+        </div>
+
+        <a class="map-btn"
+           href="https://maps.app.goo.gl/b5P77TBnoL3d3yjWA"
+           target="_blank">
+          📍 Buka Maps
+        </a>
+      </div>
+
+      <!-- EMAIL -->
+      <div class="card">
+        <h3>✉️ Email</h3>
+
+        <div class="contact-row">
+          <a href="mailto:kadi.tourpusat@gmail.com">
+            kadi.tourpusat@gmail.com
+          </a>
+            
+          <a class="map-btn email-btn"
+            href="mailto:kadi.tourpusat@gmail.com">
+              ✉️ Kirim Email
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <h2>Butuh Bantuan?</h2>
+    <p>
+    Konsultasikan rencana perjalanan Umrah dan Haji Anda
+    bersama tim Kurma Travel.
+  </p>
+
+    <a class="btn-primary"
+       onclick="openWA('Halo Kurma Travel, saya mau tanya info paket umrah/haji')">
+      Chat WhatsApp Klik Disini
+    </a>
+  </div>
+</section>
+
+<footer>
+© 2026 Kurma Travel
+</footer>
+
+<!-- ================= MODAL WA ================= -->
+
+<div id="waModal" class="wa-modal">
+  <div class="wa-box">
+
+    <h3>Pilih Admin WhatsApp</h3>
+
+    <a id="wa1" target="_blank">Chat WA 1</a>
+    <a id="wa2" target="_blank">Chat WA 2</a>
+    <a id="wa3" target="_blank">Chat WA 3</a>
+
+    <button onclick="closeWA()">Tutup</button>
+
+  </div>
+</div>
+
+<!-- ================= FLOAT WA ================= -->
+
+<!-- FLOATING WA -->
+<div class="wa-float" id="waFloat"
+onclick="openWA('Halo Kurma Travel, saya mau konsultasi terkait paket umrah/haji yang tersedia')">
+
+<!-- WHATSAPP ICON -->
+<svg viewBox="0 0 32 32" width="26" height="26" fill="white">
+<path d="M16 2.9c-7.2 0-13.1 5.9-13.1 13.1
+0 2.3.6 4.6 1.8 6.6L3 29l6.5-1.7
+c2 1.1 4.2 1.7 6.5 1.7
+7.2 0 13.1-5.9 13.1-13.1
+S23.2 2.9 16 2.9zm0 23.8
+c-2.1 0-4.1-.6-5.9-1.7l-.4-.2-3.9 1
+1-3.8-.2-.4c-1.1-1.8-1.7-3.8-1.7-5.9
+0-6.1 5-11.1 11.1-11.1
+6.1 0 11.1 5 11.1 11.1
+0 6.1-5 11.1-11.1 11.1zm6.1-8.4
+c-.3-.1-1.8-.9-2.1-1
+-.3-.1-.5-.1-.7.1
+-.2.3-.8 1-.9 1.2
+-.2.2-.3.2-.6.1
+-.3-.1-1.3-.5-2.4-1.6
+-.9-.8-1.5-1.8-1.7-2.1
+-.2-.3 0-.5.1-.6
+.1-.1.3-.3.4-.4
+.1-.1.2-.3.3-.5
+.1-.2 0-.4-.1-.6
+-.1-.1-.7-1.7-.9-2.3
+-.2-.6-.5-.5-.7-.5
+-.2 0-.4 0-.6 0
+-.2 0-.6.1-.9.4
+-.3.3-1.2 1.1-1.2 2.8
+0 1.7 1.2 3.3 1.4 3.5
+.2.2 2.4 3.7 5.8 5
+.8.3 1.4.5 1.9.6
+.8.1 1.5.1 2.1 0
+.6-.1 1.8-.7 2-1.4
+.2-.7.2-1.3.1-1.4
+-.1-.1-.3-.2-.6-.3z"/>
+</svg>
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+const WA1="6281280803429";
+const WA2="6283875613645";
+const WA3="6287776042572";
+
+function openWA(text){
+  let pesan=encodeURIComponent(text);
+  wa1.href="https://wa.me/"+WA1+"?text="+pesan;
+  wa2.href="https://wa.me/"+WA2+"?text="+pesan;
+  wa3.href="https://wa.me/"+WA3+"?text="+pesan;
+  waModal.style.display="flex";
+}
+
+function closeWA(){
+  waModal.style.display="none";
+}
+</script>
+
+<script>
+const waFloat=document.getElementById("waFloat");
+window.addEventListener("scroll",()=>{
+  if(window.scrollY>300){
+    waFloat.classList.add("show");
+  }else{
+    waFloat.classList.remove("show");
+  }
+});
+</script>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+hamburger.addEventListener("click", ()=>{
+  navMenu.classList.toggle("show");
+});
+</script>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+  reveals.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    const win = window.innerHeight;
+    if(top < win - 100){
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+</script>
+
+</script>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", ()=>{
+  mobileMenu.classList.toggle("show");
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keunggulan Kurma Travel</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="static/css/style.css">
+
+<style>
+/* =========================================
+   KEUNGGULAN KURMA TRAVEL
+========================================= */
+
+:root {
+    --primary: #ed6b23;
+    --primary-dark: #cc5016;
+    --primary-light: #fff0e3;
+    --cream: #fff8f1;
+    --text: #39271f;
+    --text-soft: #75665c;
+    --border: #f0e2d5;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 300px;
+    height: 38vh;
+    max-height: 420px;
+
+    margin: 0;
+    padding: 40px 20px;
+    overflow: hidden;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(76, 37, 18, 0.80),
+            rgba(237, 107, 35, 0.70)
+        ),
+        url("static/images/hero.jpg") center 55% / cover no-repeat;
+}
+
+/* Ornamen lingkaran */
+.hero::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+
+    width: 280px;
+    height: 280px;
+    right: -100px;
+    bottom: -185px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 32px rgba(255, 255, 255, 0.055),
+        0 0 0 65px rgba(255, 255, 255, 0.035);
+
+    pointer-events: none;
+}
+
+/* Overlay */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 122, 0, 0.12),
+        rgba(35, 20, 12, 0.40)
+    );
+}
+
+/* Judul hero */
+.hero h1 {
+    position: relative;
+    z-index: 2;
+
+    max-width: 850px;
+    margin: 0;
+    padding: 0 15px;
+
+    color: var(--white);
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.8px;
+
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
+
+    animation: heroAppear 0.7s ease both;
+}
+
+.hero h1::after {
+    content: "";
+    display: block;
+
+    width: 65px;
+    height: 4px;
+    margin: 20px auto 0;
+
+    background: #ffd3a4;
+    border-radius: 10px;
+}
+
+/* =========================================
+   KARTU KONTEN
+========================================= */
+
+.content {
+    position: relative;
+    z-index: 3;
+
+    width: calc(100% - 40px);
+    max-width: 900px;
+
+    margin: -35px auto 60px;
+    padding: 38px;
+
+    background: var(--white);
+    border: 1px solid rgba(240, 226, 213, 0.9);
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 45px rgba(74, 43, 24, 0.07),
+        0 3px 10px rgba(74, 43, 24, 0.025);
+}
+
+/* =========================================
+   DAFTAR KEUNGGULAN
+========================================= */
+
+.content ul.artikel-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+/* Kartu keunggulan */
+.content ul.artikel-list li {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+
+    min-height: 130px;
+    padding: 22px 19px;
+
+    color: #55483f;
+    background: linear-gradient(
+        145deg,
+        #ffffff,
+        #fffaf6
+    );
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    font-size: 14px;
+    line-height: 1.8;
+
+    box-shadow: 0 4px 14px rgba(74, 43, 24, 0.025);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+/* Ikon centang */
+.content ul.artikel-list li::before {
+    content: "✓";
+
+    display: flex;
+    flex: 0 0 30px;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+    margin-top: 1px;
+
+    color: var(--primary-dark);
+    background: #ffe8d5;
+    border: 1px solid #ffddc1;
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+/* Efek hover */
+.content ul.artikel-list li:hover {
+    transform: translateY(-4px);
+
+    background: #fff8f1;
+    border-color: #f2c9aa;
+
+    box-shadow: 0 12px 25px rgba(74, 43, 24, 0.08);
+}
+
+/* Kartu terakhir memenuhi satu baris */
+.content ul.artikel-list li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    min-height: auto;
+}
+
+/* =========================================
+   TOMBOL KEMBALI
+========================================= */
+
+.back {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 32px;
+    padding-top: 27px;
+
+    border-top: 1px solid var(--border);
+}
+
+.back a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 49px;
+    padding: 13px 27px;
+
+    color: var(--white);
+    background: linear-gradient(
+        135deg,
+        #f58a3d,
+        var(--primary)
+    );
+
+    border: 1px solid transparent;
+    border-radius: 50px;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+
+    box-shadow: 0 7px 18px rgba(237, 107, 35, 0.2);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.back a:hover {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+
+    transform: translateY(-3px);
+    box-shadow: 0 11px 24px rgba(237, 107, 35, 0.28);
+}
+
+.back a:focus-visible {
+    outline: 3px solid rgba(237, 107, 35, 0.4);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   ANIMASI
+========================================= */
+
+@keyframes heroAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 250px;
+        height: 32vh;
+    }
+
+    .content {
+        width: calc(100% - 32px);
+        padding: 27px;
+        margin-top: -28px;
+    }
+
+    .content ul.artikel-list {
+        gap: 12px;
+    }
+
+    .content ul.artikel-list li {
+        min-height: 140px;
+        padding: 17px 15px;
+        gap: 10px;
+        font-size: 13px;
+    }
+
+    .content ul.artikel-list li::before {
+        flex-basis: 27px;
+        width: 27px;
+        height: 27px;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 220px;
+        height: auto;
+        padding: 48px 18px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+        line-height: 1.3;
+        letter-spacing: -0.4px;
+    }
+
+    .hero h1::after {
+        width: 52px;
+        height: 3px;
+        margin-top: 16px;
+    }
+
+    .content {
+        width: calc(100% - 28px);
+        margin-top: -24px;
+        margin-bottom: 36px;
+        padding: 20px 15px;
+        border-radius: 16px;
+    }
+
+    .content ul.artikel-list {
+        grid-template-columns: 1fr;
+        gap: 11px;
+    }
+
+    .content ul.artikel-list li,
+    .content ul.artikel-list li:last-child:nth-child(odd) {
+        grid-column: auto;
+        min-height: auto;
+        padding: 17px 15px;
+        gap: 12px;
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .content ul.artikel-list li::before {
+        flex-basis: 29px;
+        width: 29px;
+        height: 29px;
+        border-radius: 9px;
+    }
+
+    .back {
+        margin-top: 25px;
+        padding-top: 22px;
+    }
+
+    .back a {
+        min-height: 45px;
+        padding: 12px 21px;
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   AKSESIBILITAS
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <h1>Keunggulan Kurma Travel</h1>
+</section>
+
+
+<!-- ================= CONTENT ================= -->
+<div class="content">
+
+<ul class="artikel-list">
+  <li>Memberikan pengalaman ibadah Umrah & Haji terbaik yang penuh makna dan keberkahan.</li>
+  <li>Didampingi tim profesional dan berpengalaman dalam mengelola serta membimbing jamaah.</li>
+  <li>Perjalanan ibadah lebih terarah, tertata, dan nyaman.</li>
+  <li>Mengunjungi tempat-tempat bersejarah Islam seperti Makkah, Madinah, Masjidil Aqsha, Turki, Mesir, hingga tempat wisata lain.</li>
+  <li>Pelayanan ramah dan fasilitas nyaman untuk memastikan ibadah berjalan lancar.</li>
+</ul>
+
+<!-- BACK -->
+<div class="back">
+  <a href="artikel.html">⬅ Kembali ke Artikel</a>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<svg width="200" height="200" viewBox="0 0 200 200"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <pattern id="p" width="50" height="50" patternUnits="userSpaceOnUse">
+
+      <!-- Bintang 8 sudut -->
+      <polygon points="25,5 30,20 45,25 30,30 25,45 20,30 5,25 20,20"
+               fill="none"
+               stroke="#ff7a00"
+               stroke-width="1"/>
+
+      <!-- Lingkaran tengah -->
+      <circle cx="25" cy="25" r="4"
+              fill="#ff7a00"/>
+
+    </pattern>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#p)"/>
+
+</svg>
