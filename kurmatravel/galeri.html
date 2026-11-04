@@ -13,17 +13,18 @@
 
         /* GRID GALERI */
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
+            columns: 4 220px;
+            column-gap: 16px;
         }
 
         .gallery-grid img {
             display: block;
             width: 100%;
-            height: 200px;
+            height: auto;
             object-fit: cover;
-            border-radius: 10px;
+            margin: 0 0 16px;
+            break-inside: avoid;
+            border-radius: 14px;
             cursor: pointer;
             transition: transform .3s ease, box-shadow .3s ease;
         }
@@ -63,6 +64,21 @@
             font-size: 38px;
             cursor: pointer;
         }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 48px;
+            height: 48px;
+            border: 1px solid rgba(255,255,255,.55);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,.48);
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .lightbox-prev { left: 24px; }
+        .lightbox-next { right: 24px; }
 /* =========================================
    WHATSAPP MODAL - SAMA DENGAN INDEX
 ========================================= */
@@ -313,117 +329,24 @@
     </section>
 
     <!-- LIGHTBOX FOTO -->
-    <div id="lightbox" class="lightbox"
-         onclick="if (event.target === this) closeLightbox();">
+    <div id="lightbox" class="lightbox">
 
         <button type="button" class="lightbox-close"
-                onclick="closeLightbox()" aria-label="Tutup foto">
+                aria-label="Tutup foto">
             &times;
         </button>
+        <button type="button" class="lightbox-nav lightbox-prev"
+                aria-label="Foto sebelumnya">&#10094;</button>
 
         <img id="lightbox-img" src="" alt="Foto dokumentasi Kurma Travel">
+        <button type="button" class="lightbox-nav lightbox-next"
+                aria-label="Foto berikutnya">&#10095;</button>
     </div>
 
     <!-- FOOTER -->
     <footer>
         © 2026 Kurma Travel
     </footer>
-
-    <!-- JAVASCRIPT -->
-
-    <script>
-        const WA1 = "6281280803429";
-        const WA2 = "6283875613645";
-        const WA3 = "6287776042572";
-
-        function openWA(message) {
-            const modal = document.getElementById("waModal");
-
-            document.getElementById("wa1").href =
-                "https://wa.me/" + WA1 + "?text=" + encodeURIComponent(message);
-
-            document.getElementById("wa2").href =
-                "https://wa.me/" + WA2 + "?text=" + encodeURIComponent(message);
-
-            document.getElementById("wa3").href =
-                "https://wa.me/" + WA3 + "?text=" + encodeURIComponent(message);
-
-            modal.classList.add("show");
-            document.body.style.overflow = "hidden";
-        }
-
-        function closeWA() {
-            document.getElementById("waModal").classList.remove("show");
-            document.body.style.overflow = "";
-        }
-
-        document.getElementById("waModal").addEventListener("click", function(event) {
-            if (event.target === this) {
-                closeWA();
-            }
-        });
-
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "Escape") {
-                closeWA();
-            }
-        });
-
-
-        // HAMBURGER NAVBAR
-        const hamburger = document.getElementById("hamburger");
-        const navMenu = document.getElementById("navMenu");
-
-        hamburger.addEventListener("click", function() {
-            navMenu.classList.toggle("show");
-        });
-
-        // LIGHTBOX
-        function openLightbox(src) {
-            const lightbox = document.getElementById("lightbox");
-            document.getElementById("lightbox-img").src = src;
-            lightbox.style.display = "flex";
-            document.body.style.overflow = "hidden";
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById("lightbox");
-            if (lightbox) {
-                lightbox.style.display = "none";
-                document.getElementById("lightbox-img").src = "";
-            }
-
-            if (!document.getElementById("waModal").classList.contains("show")) {
-                document.body.style.overflow = "";
-            }
-        }
-
-        // GENERATE FOTO GALERI
-        const gallery = document.getElementById("gallery");
-        const totalImages = 224;
-
-        for (let i = 1; i <= totalImages; i++) {
-            const img = document.createElement("img");
-
-            img.src = `static/images/gallery/gallery${i}.jpg`;
-            img.alt = `Dokumentasi perjalanan Kurma Travel ${i}`;
-            img.loading = "lazy";
-            img.decoding = "async";
-
-            img.addEventListener("click", function() {
-                if (img.complete && img.naturalWidth > 0) {
-                    openLightbox(img.src);
-                }
-            });
-
-            // Sembunyikan gambar yang tidak ditemukan
-            img.addEventListener("error", function() {
-                img.remove();
-            });
-
-            gallery.appendChild(img);
-        }
-    </script>
 
 </body>
 </html>
